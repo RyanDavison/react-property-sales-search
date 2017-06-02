@@ -10,7 +10,7 @@ const HeaderBackground = {
 const Header = () =>
   (
       <div style={HeaderBackground} className="header">
-          <a href="http://www.mesacounty.us"><img style={{"padding-top" : "0.15em"}} src={logo} className="App-logo" alt="logo" /></a>
+          <a href="http://www.mesacounty.us"><img style={{"paddingTop" : "0.15em"}} src={logo} className="App-logo" alt="logo" /></a>
       </div>
   );
 
