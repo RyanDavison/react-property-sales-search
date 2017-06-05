@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
           <Header />
           <Title />
-          <Datepickers />
+          <Datepickers months={4} />
       </div>
     );
   }
