@@ -17,7 +17,7 @@ const labelStyle = {
       constructor(props){
           super(props);
           this.state = {
-              startDate: Moment().subtract(props.months, props.units),
+              startDate: Moment().subtract(props.time, props.units),
               endDate: Moment()
           };
           this.handleChangeStart = this.handleChangeStart.bind(this);

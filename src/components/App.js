@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
           <Header />
           <Title />
-          <Datepickers months={4} units={'months'} />
+          <Datepickers time={4} units={'months'} />
       </div>
     );
   }
