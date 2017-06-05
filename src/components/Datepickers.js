@@ -42,7 +42,7 @@ const labelStyle = {
 
     render() {
       return (
-          <div>
+          <div style={{"display":"inline-block"}}>
               <div style={{"display":"inline-block"}}>
                   <label style={labelStyle} className='dateRange' htmlFor='minimumSaleDate'>Min Sales Date</label>
                   <DatePicker
