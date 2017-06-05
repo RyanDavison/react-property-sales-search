@@ -17,7 +17,7 @@ const labelStyle = {
       constructor(props){
           super(props);
           this.state = {
-              startDate: Moment().subtract(props.months, 'months'),
+              startDate: Moment().subtract(props.months, props.units),
               endDate: Moment()
           };
           this.handleChangeStart = this.handleChangeStart.bind(this);
@@ -68,17 +68,6 @@ const labelStyle = {
               </div>
 
           </div>
-        //   <div className="Datepickers">
-        //       <div>
-        //           <label className='dateRange' htmlFor='minimumSaleDate'>Min Sales Date</label>
-        //           <input type='text' className='datePick facet' placeholder='Choose Date' id='minimumSaleDate' />
-        //           <DatePicker selected={this.state.startDate} onChange={this.handleChange} />
-        //       </div>
-        //       <div>
-        //           <label className='dateRange' htmlFor='maximumSaleDate'>Max Sales Date</label>
-        //           <input type='text' className='datePick facet' placeholder='Choose Date' id='maximumSaleDate' />
-        //       </div>
-        //   </div>
       );
     }
   }
