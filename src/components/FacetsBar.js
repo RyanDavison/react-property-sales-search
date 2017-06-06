@@ -1,9 +1,7 @@
 import React from 'react';
 import Datepickers from './Datepickers';
 import Dropdown from './Dropdown';
-// import Dropdown from 'react-dropdown';
-// import 'react-dropdown/style.css';
-// import '../styles/Dropdown.css';
+import MoreFilters from './MoreFilters';
 
 
 const facetsbar = {
@@ -13,6 +11,7 @@ const facetsbar = {
     boxShadow: "inset 0 6px 2px -2px #e5e5e5",
     boxSizing: "border-box",
     height: "3.2em",
+    marginLeft: "-10em",
     minWidth: "890px"
 }
 
@@ -55,6 +54,7 @@ const FacetsBar = () =>
           <span style={dividerStyle}></span>
           <Dropdown placeholder='Select Property Type' value={'Select Property Type'}/>
           <span style={dividerStyle}></span>
+          <MoreFilters message={'More Filters'} />
       </div>
   );
 
