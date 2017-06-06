@@ -7,7 +7,6 @@
     "react": "^15.5.4",
     "react-datepicker": "^0.46.0",
     "react-dom": "^15.5.4",
-    "react-dropdown": "^1.2.3",
     "react-overlays": "^0.7.0",
     "react-router-dom": "^4.1.1"
   },
