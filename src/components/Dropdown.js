@@ -23,13 +23,10 @@ componentWillUnmount () {
    document.removeEventListener('click', this.showHide, false)
  }
 
-selectNode(node){
-if("LI"){
-    `Look into the span`
-}else{
-    `Just look into the current span`
-}
-    console.log(node.target.nodeName)
+selectNode(node) {
+    if (node.target.className !== 'heading') {
+        this.setState({value: node.target.innerHTML});
+    }
 }
 
 showHide(event) {
@@ -42,7 +39,7 @@ showHide(event) {
 
     render() {
       return (
-          <div className='dropdown'>{this.state.value}<span>&#9660;</span>
+          <div className='dropdown'>{this.state.value}<span className='dropdown'>&#9660;</span>
               <ul style={{"display":this.state.isShown? "block":"none"}} className='drop-nav display' onClick={this.selectNode}>
                   <li className="heading">Improved Sales</li>
                   <li>Agricultural</li>
