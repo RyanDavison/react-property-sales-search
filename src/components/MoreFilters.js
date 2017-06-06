@@ -10,6 +10,13 @@ const filterStyles = {
     fontSize: '0.8em'
 }
 
+const arrowSpanStyles = {
+    marginLeft:"1em",
+    float:"right",
+    fontSize:"0.8em",
+    marginTop: "0.1em"
+}
+
 const showFilters = ()=>{
     alert(`Filters overlay will go here`)
 }
@@ -17,7 +24,7 @@ const showFilters = ()=>{
 const MoreFilters = (props) =>
   (
       <div style={filterStyles} onClick={showFilters}>
-          {props.message}<span style={{"marginLeft":"1em", "float":"right"}}>&#9660;</span>
+          {props.message}<span style={arrowSpanStyles}>&#9660;</span>
       </div>
   );
 
