@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import '../styles/App.css';
 import Header from './Header';
 import Title from './Title';
-import FacetsBar from './FacetsBar'
+import FacetsBar from './FacetsBar';
+import StartMessage from './StartMessage';
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
           <Header />
           <Title />
           <FacetsBar />
+          <StartMessage />
       </div>
     );
   }
