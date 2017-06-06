@@ -5,19 +5,23 @@ import Moment from 'moment';
 
 
 const labelStyle = {
-     display: "block",
-       fontSize: "0.8em",
-       fontWeight: "bold",
-       textAlign: "left",
-       marginLeft: "0.1em"
- }
+    display: "block",
+    fontSize: "0.8em",
+    fontWeight: "bold",
+    textAlign: "left",
+    marginLeft: "0.1em"
+}
+
+const datePickerStyle = {
+    display: "inline-block"
+}
 
 
   class Datepickers extends Component {
       constructor(props){
           super(props);
           this.state = {
-              startDate: Moment().subtract(4, 'months'), //this should be setautomatically for start and end dates
+              startDate: Moment().subtract(props.time, props.units),
               endDate: Moment()
           };
           this.handleChangeStart = this.handleChangeStart.bind(this);
@@ -42,8 +46,8 @@ const labelStyle = {
 
     render() {
       return (
-          <div>
-              <div style={{"display":"inline-block"}}>
+          <div style={datePickerStyle}>
+              <div style={datePickerStyle}>
                   <label style={labelStyle} className='dateRange' htmlFor='minimumSaleDate'>Min Sales Date</label>
                   <DatePicker
                       customInput={<input className='facet' placeholder='Choose Date' id='minimumSaleDate' style={{"width":"95%"}} />}
@@ -55,7 +59,7 @@ const labelStyle = {
                   />
               </div>
 
-              <div style={{"display":"inline-block"}}>
+              <div style={datePickerStyle}>
                   <label style={labelStyle} className='dateRange' htmlFor='maximumSaleDate'>Max Sales Date</label>
                   <DatePicker
                       customInput={<input className='facet' placeholder='Choose Date' id='maximumSaleDate' style={{"width":"95%"}} />}
@@ -68,17 +72,6 @@ const labelStyle = {
               </div>
 
           </div>
-        //   <div className="Datepickers">
-        //       <div>
-        //           <label className='dateRange' htmlFor='minimumSaleDate'>Min Sales Date</label>
-        //           <input type='text' className='datePick facet' placeholder='Choose Date' id='minimumSaleDate' />
-        //           <DatePicker selected={this.state.startDate} onChange={this.handleChange} />
-        //       </div>
-        //       <div>
-        //           <label className='dateRange' htmlFor='maximumSaleDate'>Max Sales Date</label>
-        //           <input type='text' className='datePick facet' placeholder='Choose Date' id='maximumSaleDate' />
-        //       </div>
-        //   </div>
       );
     }
   }
