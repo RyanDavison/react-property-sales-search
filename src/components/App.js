@@ -4,7 +4,6 @@ import Header from './Header';
 import Title from './Title';
 import FacetsBar from './FacetsBar';
 import StartMessage from './StartMessage';
-// import Modal from './MCModal';
 
 class App extends Component {
   render() {
@@ -14,7 +13,6 @@ class App extends Component {
           <Title />
           <FacetsBar />
           <StartMessage />
-          {/* <Modal /> */}
       </div>
     );
   }
