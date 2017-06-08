@@ -4,6 +4,7 @@ import Header from './Header';
 import Title from './Title';
 import FacetsBar from './FacetsBar';
 import StartMessage from './StartMessage';
+import Table from './Table';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <Title />
           <FacetsBar />
           <StartMessage />
+          <Table />
       </div>
     );
   }
