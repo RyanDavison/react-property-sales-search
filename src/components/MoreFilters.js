@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Modal from 'react-modal';
 
 const filterStyles = {
     display: 'inline-block',
@@ -17,16 +18,48 @@ const arrowSpanStyles = {
     marginTop: "0.1em"
 }
 
-const showFilters = ()=>{
-    alert(`Filters overlay will go here`)
-}
+// const showFilters = ()=>{
+//     alert(`Filters overlay will go here`)
+// }
 
-const MoreFilters = (props) =>
-  (
-      <div style={filterStyles} onClick={showFilters}>
-          {props.message}<span style={arrowSpanStyles}>&#9660;</span>
-      </div>
-  );
+// const MoreFilters = (props) =>
+//   (
+//       <div style={filterStyles} onClick={showFilters}>
+//           {props.message}<span style={arrowSpanStyles}>&#9660;</span>
+//           <Modal />
+//       </div>
+//   );
+
+    class MoreFilters extends Component {
+        constructor(props){
+            super(props);
+            this.state = {
+                modalIsOpen: false
+            }
+        }
+
+        toggleModal = ()=>{
+            this.setState({modalIsOpen: !this.state.modalIsOpen})
+        }
+
+      render() {
+        return (
+          <div style={filterStyles} onClick={this.toggleModal}>
+              {this.props.message}<span style={arrowSpanStyles}>&#9660;</span>
+              <Modal
+                  isOpen={this.state.modalIsOpen}
+                  //   onAfterOpen={this.afterOpenModal}
+                  onRequestClose={this.toggleModal}
+                  shouldCloseOnOverlayClick={false}
+                  contentLabel="MCModal"
+              >
+                  <h2 ref="subtitle">Hello</h2>
+                  <button onClick={this.toggleModal}>close</button>
+              </Modal>
+          </div>
+        );
+      }
+    }
 
 
 export default MoreFilters;
