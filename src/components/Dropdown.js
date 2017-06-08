@@ -5,10 +5,9 @@ import '../styles/Dropdown.css';
       constructor(props){
           super(props);
           this.state = {
-              selected: props.value,
-              title: props.title || 'Select',
               value: props.value || 'Select...',
-              display: false
+              display: false,
+              listItems: props.option
           };
 
           this.showHide = this.showHide.bind(this);
@@ -41,22 +40,9 @@ showHide(event) {
       return (
           <div className='dropdown'>{this.state.value}<span className='dropdown'>&#9660;</span>
               <ul style={{"display":this.state.isShown? "block":"none"}} className='drop-nav display' onClick={this.selectNode}>
-                  <li className="heading">Improved Sales</li>
-                  <li>Agricultural</li>
-                  <li>Commercial/Industrial</li>
-                  <li>Condo</li>
-                  <li>Duplex/Triplex</li>
-                  <li>Exempt</li>
-                  <li>Manufactured Home</li>
-                  <li>Multi Family 4 TO 8</li>
-                  <li>Multi Family 9 AND UP</li>
-                  <li>Single Family</li>
-                  <li>Townhouse</li>
-                  <li className="heading">Vacant Sales</li>
-                  <li>Agricultural Vacant</li>
-                  <li>Commercial/Industrial Vacant</li>
-                  <li>Exempt Vacant</li>
-                  <li>Residential Vacant</li>
+                  {this.state.listItems.map(item =>{
+                      return <li key={item.value} className={item.type} >{item.value}</li>
+                  })}
               </ul>
           </div>
       );
