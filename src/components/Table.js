@@ -10,7 +10,7 @@ import React, { Component } from 'react';
       }
     render() {
       return (
-          <table style={{"display": this.state.isShown?"block": "none"}} id="table" class="row-border hover">
+          <table style={{"display": this.state.isShown?"block": "none"}} id="table" className="row-border hover">
               <thead>
                   <tr>
                       <th>Parcel Number (Click for map)</th>

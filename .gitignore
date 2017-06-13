@@ -8,6 +8,8 @@
 
 # production
 /build
+/server
+sqlConfig.js
 
 # misc
 .DS_Store
