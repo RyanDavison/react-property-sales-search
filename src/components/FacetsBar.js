@@ -19,6 +19,7 @@ const dividerStyle = {
     display: "inline-block",
     borderRight:"1px solid #d2d2d2",
     marginLeft: "0.5em",
+    marginRight: "0.5em",
     height: "1.5em"
 }
 
@@ -46,7 +47,7 @@ const FacetsBar = () =>
       <div style={facetsbar} className="facets-bar">
           <Datepickers time={4} units={'months'} />
           <span style={dividerStyle}></span>
-          <Dropdown option={dropdownContent} placeholder='Select Property Type' value={'Select Property Type'}/>
+          <Dropdown baseclass='more-filters' option={dropdownContent} placeholder='Select Property Type' value={'Select Property Type'}/>
           <span style={dividerStyle}></span>
           <MoreFilters message={'More Filters'} />
       </div>

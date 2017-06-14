@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
+import Qualification from './Qualification';
+
 
 const filterStyles = {
     display: 'inline-block',
     position:'absolute',
     marginTop: '1.35em',
     cursor:'pointer',
-    paddingLeft: '1em',
+    // paddingLeft: '1em',
     fontWeight: 'bold',
     fontSize: '0.8em'
 }
@@ -70,10 +72,10 @@ const modalStyle = {
                   isOpen={this.state.modalIsOpen}
                   onRequestClose={this.toggleModal}
                   shouldCloseOnOverlayClick={true}
-                  //   parentSelector={()=>document.querySelector('.startMessage')}
                   contentLabel="MCModal"
               >
-                  <h2 ref="subtitle">Hello</h2>
+                  <Qualification />
+
                   <button onClick={this.toggleModal}>close</button>
               </Modal>
           </div>
