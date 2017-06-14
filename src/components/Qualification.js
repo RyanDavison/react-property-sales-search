@@ -28,13 +28,8 @@ const qualificationLabelStyle = {
 }
 
 const customStyles = {
-    // dropdown: {
-    //     "width":"14.5em",
-    //     "paddingLeft": "0 !important"
-    // },
     dropNav: {
         "width":"15.5em",
-        // "paddingLeft":"0 !important",
         "marginLeft":"-0.7em",
         "marginTop":"0.9em"
     },
@@ -63,35 +58,3 @@ const customStyles = {
 
 
 export default Qualification;
-
-// import React, { Component } from 'react';
-//
-// const qualificationStyle = {
-//     marginBottom: '1.2em',
-//     padding: '0 1em 2em 1em',
-//     border: '1px solid #ccc',
-//     borderRadius: '4px',
-//     boxShadow: '1px 1px 5px #888888',
-//     position: 'relative',
-//     float: 'left',
-//     lineHeight: '1.9em'
-// }
-//
-//   class Qualification extends Component {
-//     render() {
-//       return (
-//           <div style={qualificationStyle} className='salesqualification'>
-//               <h6>Sales Qualification Type</h6>
-//               <label style={{"display":"block"}}>
-//                   <input className='facet' type='radio' value='qualified' name='qualified' id='qualified' />Qualified</label>
-//               <label style={{"display":"block"}}>
-//                   <input className='facet' type='radio' value='unqualified' name='qualified' id='unqualified' />Unqualified</label>
-//               <label style={{"display":"block"}}>
-//                   <input className='facet' type='radio' value='both' name='qualified' id='both' checked='checked' />Qualified and Unqualified</label>
-//                       </div>
-//       );
-//     }
-//   }
-//
-//
-// export default Qualification;
