@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
+import PropTypes from 'prop-types';
 import 'react-datepicker/dist/react-datepicker.css';
 import Moment from 'moment';
 
@@ -72,8 +73,8 @@ const datePickerStyle = {
     }
   }
 
-  DatePicker.propTypes = {
-      time: PropTypes.string.isRequired,
+  Datepickers.propTypes = {
+      time: PropTypes.number.isRequired,
       units: PropTypes.string.isRequired,
   }
 
