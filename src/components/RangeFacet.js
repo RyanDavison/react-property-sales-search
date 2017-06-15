@@ -1,0 +1,75 @@
+import React, { Component } from 'react';
+
+const rangeFacetStyle = {
+    display: 'block',
+    border: '1px solid #ccc',
+    borderRadius: '4px',
+    padding: '0.5em 0 2em 1.5em',
+    marginBottom:'1em',
+    top: '0',
+    height: '2.8em',
+    width: '16em',
+    boxShadow: '1px 1px 5px #888888'
+}
+const rangeFacetLabelStyle = {
+    display: 'block',
+    fontSize: '0.8em',
+    fontWeight: 'bold',
+    color: '#C4C4C4',
+    margin: '0 0 0.4em 0',
+    textAlign:'left',
+    borderBottom: '1px solid #ccc'
+}
+
+const rangeBlock = {
+    position: "relative",
+    float: "left",
+    lineHeight: "1.1em",
+    paddingRight: "1em",
+    fontSize:"0.8em"
+}
+
+const inputStyle = {
+    width: "8em"
+}
+
+  class RangeFacet extends Component {
+      constructor(props){
+          super(props)
+          this.state = {
+              minValue: this.props.minValue,
+              maxValue: this.props.maxValue
+          }
+      }
+
+      changeMin = (event) =>{
+          this.setState({
+              minValue: event.target.value
+          })
+      }
+      changeMax = (event) =>{
+          this.setState({
+              maxValue: event.target.value
+          })
+      }
+    render() {
+      return (
+          <div style={rangeFacetStyle}>
+              <label style={rangeFacetLabelStyle}>{this.props.title}</label>
+              <div style={rangeBlock}>
+                  <label style={{"display":"block"}} className='range'>{this.props.minLabel}</label>
+                  <input style={inputStyle} className='facet access' type='number' step={this.props.step} value={this.state.minValue}
+                      onChange={this.changeMin} />
+              </div>
+              <div style={rangeBlock}>
+                  <label style={{"display":"block"}} className='range'>{this.props.maxLabel}</label>
+                  <input style={inputStyle} className='facet access' type='number' step={this.props.step} value={this.state.maxValue}
+                      onChange={this.changeMax} />
+              </div>
+                  </div>
+      );
+    }
+  }
+
+
+export default RangeFacet;

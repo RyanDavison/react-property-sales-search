@@ -12,6 +12,7 @@ const qualificationStyle = {
     border: '1px solid #ccc',
     borderRadius: '4px',
     padding: '0.5em',
+    marginBottom: '1em',
     top: '0',
     height: '2.8em',
     width: '12em',

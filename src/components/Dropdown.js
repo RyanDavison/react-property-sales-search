@@ -11,26 +11,23 @@ import '../styles/Dropdown.css';
               baseClass: props.baseclass || 'base-class',
               customStyles: props.customStyles || {dropdown:{},dropNav:{},ulContainer:{}}
           };
-
-          this.showHide = this.showHide.bind(this);
-          this.selectNode = this.selectNode.bind(this);
       }
 
-componentDidMount(x){
+componentDidMount = (x) =>{
     document.addEventListener('click', this.showHide, false);
 }
 
-componentWillUnmount () {
+componentWillUnmount = () =>{
    document.removeEventListener('click', this.showHide, false)
  }
 
-selectNode(node) {
+selectNode = (node) =>{
     if (node.target.className !== 'heading') {
         this.setState({value: node.target.innerHTML});
     }
 }
 
-showHide(event) {
+showHide = (event) =>{
     if (event.target.className.indexOf(this.state.baseClass) > -1) {
         this.setState({isShown: !this.state.isShown});
     } else if (event.target.className.indexOf(this.state.baseClass) <= -1 && event.target.className !== "heading" && this.state.isShown) {

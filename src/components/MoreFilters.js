@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
 import Qualification from './Qualification';
+import RangeFacet from './RangeFacet';
 
 
 const filterStyles = {
@@ -9,7 +10,6 @@ const filterStyles = {
     position:'absolute',
     marginTop: '1.35em',
     cursor:'pointer',
-    // paddingLeft: '1em',
     fontWeight: 'bold',
     fontSize: '0.8em'
 }
@@ -19,6 +19,34 @@ const arrowSpanStyles = {
     float:"right",
     fontSize:"0.8em",
     marginTop: "0.1em"
+}
+
+const buttonGroupStyle = {
+    position: 'absolute',
+    bottom: '1em',
+    right: '1em'
+}
+
+const buttonStyle = {
+    padding:"0.75em",
+    borderRadius:"4px",
+    cursor: "pointer",
+    border:"none",
+    margin:"0.25em"
+}
+
+const leftColumn = {
+    width: "18em",
+    minHeight: "99%",
+    float:"left",
+    margin: "0 1em",
+}
+
+const rightColumn = {
+    width: "18em",
+    height: "100%",
+    float:"right",
+    margin: "0 1em",
 }
 
 const modalStyle = {
@@ -41,7 +69,8 @@ const modalStyle = {
         constructor(props){
             super(props);
             this.state = {
-                modalIsOpen: false
+                modalIsOpen: false,
+                count: "0"
             }
         }
 
@@ -49,7 +78,9 @@ const modalStyle = {
         this.setState({
             modalIsOpen: !this.state.modalIsOpen
         });
+    }
 
+    getCount = ()=>{
         //Placeholder data. This should go away when global state is implemented.
         const data = {
             ACCOUNTNO: 'R05552',
@@ -59,6 +90,9 @@ const modalStyle = {
 
         axios.post('http://localhost:3000/query', data)//data is a function that returns the state of the search facets
         .then(res =>{
+            this.setState({
+                count: res.data
+            });
             console.dir(res.data)
         })
     }
@@ -74,9 +108,74 @@ const modalStyle = {
                   shouldCloseOnOverlayClick={true}
                   contentLabel="MCModal"
               >
-                  <Qualification />
+                  <div style={column} className="leftColumn">
+                      <Qualification />
 
-                  <button onClick={this.toggleModal}>close</button>
+                      <RangeFacet
+                          title='Sale Amount'
+                          minLabel='Min Sale Amount'
+                          maxLabel='Max Sale Amount'
+                          minValue='0'
+                          maxValue='10000000'
+                          step='10000'
+                      />
+
+                      <RangeFacet
+                          title='Acreage'
+                          minLabel='Min Acreage'
+                          maxLabel='Max Acreage'
+                          minValue='0'
+                          maxValue='500'
+                          step='0.1'
+                      />
+
+                      <RangeFacet
+                          title='Total heated Square Feet'
+                          minLabel='Min Square Feet'
+                          maxLabel='Max Square Feet'
+                          minValue='0'
+                          maxValue='100000'
+                          step='0.1'
+                      />
+                  </div>
+
+                  <div style={column} className="centerColumn">
+                      <RangeFacet
+                          title='Sale Amount'
+                          minLabel='Min Sale Amount'
+                          maxLabel='Max Sale Amount'
+                          minValue='0'
+                          maxValue='10000000'
+                          step='10000'
+                      />
+
+                      <RangeFacet
+                          title='Acreage'
+                          minLabel='Min Acreage'
+                          maxLabel='Max Acreage'
+                          minValue='0'
+                          maxValue='500'
+                          step='0.1'
+                      />
+
+                      <RangeFacet
+                          title='Total heated Square Feet'
+                          minLabel='Min Square Feet'
+                          maxLabel='Max Square Feet'
+                          minValue='0'
+                          maxValue='100000'
+                          step='0.1'
+                      />
+                  </div>
+
+                  <div style={column} className="rightColumn">
+                      <div style={buttonGroupStyle} className='buttonGroup'>
+                          <button style={buttonStyle} onClick={this.getCount}>View {this.state.count} records</button>
+                          <button style={buttonStyle} onClick={this.toggleModal}>Cancel</button>
+                      </div>
+                  </div>
+
+
               </Modal>
           </div>
         );
