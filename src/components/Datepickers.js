@@ -24,19 +24,15 @@ const datePickerStyle = {
               startDate: Moment().subtract(props.time, props.units),
               endDate: Moment()
           };
-          this.handleChangeStart = this.handleChangeStart.bind(this);
-          this.handleChangeEnd = this.handleChangeEnd.bind(this);
-
-
       }
 
-      handleChangeStart(date) {
+      handleChangeStart = date => {
         this.setState({
           startDate: date
         });
         }
 
-        handleChangeEnd(date) {
+        handleChangeEnd = date => {
           this.setState({
             endDate: date
           });
