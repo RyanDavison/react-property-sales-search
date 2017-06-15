@@ -73,11 +73,18 @@ const inputStyle = {
   }
 
   RangeFacet.propTypes = {
-
+      title: PropTypes.string.isRequired,
+      minLabel: PropTypes.string,
+      maxLabel: PropTypes.string,
+      minValue: PropTypes.string.isRequired,
+      maxValue: PropTypes.string.isRequired,
+      step: PropTypes.string
   }
 
-  RangeFacet.defaultTypes = {
-      title: 'Range'
+  RangeFacet.defaultProps = {
+      minLabel: 'Min',
+      maxLabel: 'Max',
+      step: '1'
   }
 
 
