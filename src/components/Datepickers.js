@@ -72,5 +72,10 @@ const datePickerStyle = {
     }
   }
 
+  DatePicker.propTypes = {
+      time: PropTypes.string.isRequired,
+      units: PropTypes.string.isRequired,
+  }
+
 
 export default Datepickers;
