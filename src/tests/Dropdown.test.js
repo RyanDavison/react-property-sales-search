@@ -15,4 +15,14 @@ describe("<Dropdown />", ()=>{
       sinon.assert.notCalled(console.error)
       expect(tree).toMatchSnapshot();
     });
+
+    test('UL shows when dropdown clicked', () => {
+        const tree = renderer.create(
+            <Dropdown />
+      ).toJSON();
+
+      sinon.assert.notCalled(console.error)
+      expect(tree).toMatchSnapshot();
+    });
+
 });

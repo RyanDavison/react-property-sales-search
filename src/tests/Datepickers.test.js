@@ -9,7 +9,10 @@ describe("<Datepickers />", ()=>{
 
     test('renders without crashing', () => {
         const tree = renderer.create(
-            <Datepickers />
+            <Datepickers
+                time={1}
+                units='month'
+            />
       ).toJSON();
 
       sinon.assert.notCalled(console.error)
