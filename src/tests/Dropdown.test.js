@@ -2,14 +2,14 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 import {stubConsoleError} from './utils/test-utils'
-import Datepickers from '../components/Datepickers';
+import Dropdown from '../components/Dropdown';
 
-describe("<Datepickers />", ()=>{
+describe("<Dropdown />", ()=>{
     stubConsoleError();
 
     test('renders without crashing', () => {
         const tree = renderer.create(
-            <Datepickers />
+            <Dropdown />
       ).toJSON();
 
       sinon.assert.notCalled(console.error)
