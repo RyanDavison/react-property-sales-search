@@ -27,13 +27,20 @@ describe("<Dropdown />", ()=>{
       expect(tree).toMatchSnapshot();
     });
 
-    // test('UL shows when dropdown clicked', () => {
-    //     const tree = renderer.create(
-    //         <Dropdown />
-    //   ).toJSON();
-    //
-    //   sinon.assert.notCalled(console.error)
-    //   expect(tree).toMatchSnapshot();
-    // });
+    test('UL shows when dropdown clicked', () => {
+        const wrapper = mount(
+            <Dropdown
+                baseclass='test-dropdown'
+                option={testContent}
+                placeholder='Select Test Data'
+                value={'Select Test Data'}
+            />
+      )
+
+      wrapper.instance().showHide({target:{classname: 'header'}});
+    //   wrapper.instance().changeMax({target:{value: 5000}});
+    //   expect(wrapper.nodes[0].state.minValue).toEqual(500);
+      expect(wrapper.nodes[0].state.isShown).toEqual(5000);
+    });
 
 });
