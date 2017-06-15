@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 const rangeFacetStyle = {
     display: 'block',
@@ -69,6 +70,14 @@ const inputStyle = {
                   </div>
       );
     }
+  }
+
+  RangeFacet.propTypes = {
+
+  }
+
+  RangeFacet.defaultTypes = {
+      title: 'Range'
   }
 
 

@@ -49,6 +49,13 @@ const rightColumn = {
     margin: "0 1em",
 }
 
+const column = {
+    width: "33%",
+    height: "99%",
+    float:"left",
+    margin: "0 1em",
+}
+
 const modalStyle = {
     overlay:{
         top: 246,
