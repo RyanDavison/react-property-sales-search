@@ -16,7 +16,6 @@ const startMessageStyles = {
           this.state = {
               loadingDisplay: false
           };
-
       }
 
     render() {
