@@ -90,9 +90,7 @@ const modalStyle = {
     getCount = ()=>{
         //Placeholder data. This should go away when global state is implemented.
         const data = {
-            ACCOUNTNO: 'R05552',
-            OWNER: 'Ryan Davison',
-            ADDRESS: '584 Sunny'
+            ACCOUNTNO: 'R05552'
         }
 
         axios.post('http://localhost:3000/query', data)//data is a function that returns the state of the search facets
