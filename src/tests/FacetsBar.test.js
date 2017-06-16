@@ -1,18 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import sinon from 'sinon';
-import {stubConsoleError} from './utils/test-utils';
-import Datepickers from '../components/Datepickers';
+import FacetsBar from '../components/FacetsBar';
 
-describe("<Datepickers />", ()=>{
-    // stubConsoleError();
-    //
+describe("<FacetsBar />", ()=>{
     // test('renders without crashing', () => {
     //     const tree = renderer.create(
-    //         <Datepickers time={4} units={'months'} />
+    //         <FacetsBar />
     //   ).toJSON();
-    //
-    //   sinon.assert.notCalled(console.error)
     //   expect(tree).toMatchSnapshot();
     // });
 
