@@ -67,7 +67,7 @@ const inputStyle = {
                   <input style={inputStyle} className='facet access' type='number' step={this.props.step} value={this.state.maxValue}
                       onChange={this.changeMax} />
               </div>
-                  </div>
+          </div>
       );
     }
   }

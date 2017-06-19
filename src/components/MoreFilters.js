@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import Qualification from './Qualification';
 import RangeFacet from './RangeFacet';
+import SelectFacet from './SelectFacet';
 
 
 const filterStyles = {
@@ -145,31 +146,9 @@ const modalStyle = {
                   </div>
 
                   <div style={column} className="centerColumn">
-                      <RangeFacet
-                          title='Sale Amount'
-                          minLabel='Min Sale Amount'
-                          maxLabel='Max Sale Amount'
-                          minValue='0'
-                          maxValue='10000000'
-                          step='10000'
-                      />
-
-                      <RangeFacet
-                          title='Acreage'
-                          minLabel='Min Acreage'
-                          maxLabel='Max Acreage'
-                          minValue='0'
-                          maxValue='500'
-                          step='0.1'
-                      />
-
-                      <RangeFacet
-                          title='Total heated Square Feet'
-                          minLabel='Min Square Feet'
-                          maxLabel='Max Square Feet'
-                          minValue='0'
-                          maxValue='100000'
-                          step='0.1'
+                      <SelectFacet
+                          title='Major Area'
+                          options={[]}
                       />
                   </div>
 
