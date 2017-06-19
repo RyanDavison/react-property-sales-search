@@ -73,6 +73,15 @@ const modalStyle = {
     }
 }
 
+const optionList = [
+    {value: "Any", label: "Any"},
+    {value: "GrandJunction", label: "Grand Junction"},
+    {value: "Palisade", label: "Palisade"},
+    {value: "FruitaLoma", label: "Fruita/Loma"},
+    {value: "OutlyingAreas", label: "Outlying Areas"},
+    {value: "Unknown", label: "Unknown"}
+]
+
     class MoreFilters extends Component {
         constructor(props){
             super(props);
@@ -148,7 +157,7 @@ const modalStyle = {
                   <div style={column} className="centerColumn">
                       <SelectFacet
                           title='Major Area'
-                          options={[]}
+                          options={optionList}
                       />
                   </div>
 
