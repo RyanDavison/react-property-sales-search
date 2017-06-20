@@ -37,24 +37,24 @@ const buttonStyle = {
 }
 
 const leftColumn = {
-    width: "18em",
-    minHeight: "99%",
+    width: "33%",
+    minHeight: "95%",
     float:"left",
-    margin: "0 1em",
+    marginLeft:'1.5em',
+    marginTop:'1em'
 }
 
 const rightColumn = {
     width: "18em",
     height: "100%",
-    float:"right",
-    margin: "0 1em",
+    float:"right"
 }
 
 const column = {
     width: "33%",
     height: "99%",
     float:"left",
-    margin: "0 1em",
+    // margin: "0 1em",
 }
 
 const modalStyle = {
@@ -69,11 +69,37 @@ const modalStyle = {
         left: '0px',
         right: '0px',
         bottom: '0px',
+        padding:'none',
         borderTop: 'none'
     }
 }
 
-const optionList = [
+const economicArea = [
+    {value: "Any", label: "Any"},
+    {value: "Clifton / D 1/2 Rd Area", label: "Clifton / D 1/2 Rd Area"},
+    {value: "Commercial", label: "Commercial"},
+    {value: "Downtown", label: "Downtown"},
+    {value: "East Of 28 Rd / NE Grand Jct", label: "East Of 28 Rd / NE Grand Jct"},
+    {value: "Fruita / East 18 to 22 Rd", label: "Fruita / East 18 to 22 Rd"},
+    {value: "Fruitvale Area", label: "Fruitvale Area"},
+    {value: "GJ North Area", label: "GJ North Area"},
+    {value: "N/A", label: "N/A"},
+    {value: "Orchard Mesa", label: "Orchard Mesa"},
+    {value: "Outlying", label: "Outlying"},
+    {value: "Palisade/East Orchard Mesa", label: "Palisade/East Orchard Mesa"},
+    {value: "Redlands", label: "Redlands"}
+]
+
+const majorArea = [
+    {value: "Any", label: "Any"},
+    {value: "GrandJunction", label: "Grand Junction"},
+    {value: "Palisade", label: "Palisade"},
+    {value: "FruitaLoma", label: "Fruita/Loma"},
+    {value: "OutlyingAreas", label: "Outlying Areas"},
+    {value: "Unknown", label: "Unknown"}
+]
+
+const detailedUse = [
     {value: "Any", label: "Any"},
     {value: "GrandJunction", label: "Grand Junction"},
     {value: "Palisade", label: "Palisade"},
@@ -87,9 +113,26 @@ const optionList = [
             super(props);
             this.state = {
                 modalIsOpen: false,
-                count: "0"
+                count: "0",
+                hoods: undefined,
+                archType: undefined
             }
         }
+
+    componentWillMount = () => {
+        const fetchData = (method, stateKey, field) =>{
+            axios.post(`http://localhost:3000/${method}`).then(res => {
+            this.setState({
+                [stateKey]: [{value: "Any", label: "Any"}].concat(res.data.map(opt => {
+                    return {value: opt[field], label: opt[field]}
+                }))
+            })
+            return
+        })
+    };
+    fetchData('neighborhood', 'hoods', 'NBHD_DESC');
+    fetchData('building', 'archType', 'type');
+    }
 
     toggleModal = () => {
         this.setState({
@@ -123,7 +166,7 @@ const optionList = [
                   shouldCloseOnOverlayClick={true}
                   contentLabel="MCModal"
               >
-                  <div style={column} className="leftColumn">
+                  <div style={leftColumn} className="leftColumn">
                       <Qualification />
 
                       <RangeFacet
@@ -157,16 +200,39 @@ const optionList = [
                   <div style={column} className="centerColumn">
                       <SelectFacet
                           title='Major Area'
-                          options={optionList}
+                          options={majorArea}
+                      />
+
+                      <SelectFacet
+                          title='Economic Area'
+                          options={economicArea}
+                      />
+
+                      <SelectFacet
+                          title='Neighborhood/Subdivision'
+                          options={this.state.hoods}
+                      />
+
+                      <SelectFacet
+                          title='Detailed Property Use'
+                          options={detailedUse}
                       />
                   </div>
 
-                  <div style={column} className="rightColumn">
+                  <div style={rightColumn} className="rightColumn">
+
+                      <SelectFacet
+                          title='Detailed Property Use'
+                          options={this.state.archType}
+                      />
+
+
                       <div style={buttonGroupStyle} className='buttonGroup'>
                           <button style={buttonStyle} onClick={this.getCount}>View {this.state.count} records</button>
                           <button style={buttonStyle} onClick={this.toggleModal}>Cancel</button>
                       </div>
                   </div>
+
 
 
               </Modal>

@@ -58,12 +58,12 @@ const inputStyle = {
           <div style={rangeFacetStyle}>
               <label style={rangeFacetLabelStyle}>{this.props.title}</label>
               <div style={rangeBlock}>
-                  <label style={{"display":"block"}} className='range'>{this.props.minLabel}</label>
+                  <label style={{"display":"block", "textAlign":"left"}} className='range'>{this.props.minLabel}</label>
                   <input style={inputStyle} className='facet access' type='number' step={this.props.step} value={this.state.minValue}
                       onChange={this.changeMin} />
               </div>
               <div style={rangeBlock}>
-                  <label style={{"display":"block"}} className='range'>{this.props.maxLabel}</label>
+                  <label style={{"display":"block", "textAlign":"left"}} className='range'>{this.props.maxLabel}</label>
                   <input style={inputStyle} className='facet access' type='number' step={this.props.step} value={this.state.maxValue}
                       onChange={this.changeMax} />
               </div>
