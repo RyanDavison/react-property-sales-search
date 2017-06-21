@@ -28,7 +28,6 @@ const inputStyle = {
   class SelectFacet extends Component {
       constructor(props){
           super(props)
-          console.log(props.customStyles.component)
           this.state = {
               selected: ["Any"]
           }

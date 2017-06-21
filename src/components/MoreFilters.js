@@ -90,6 +90,15 @@ const detailedUseStyle = {
     }
 }
 
+const buildingTypeStyle = {
+    select: {
+        'height':'13.5em'
+    },
+    component:{
+        'display':'inline-block'
+    }
+}
+
 const neighborhoodStyle = {
     select: {
         'height':'13.5em'
@@ -221,7 +230,7 @@ const detailedUse = [
                           maxLabel='Max Square Feet'
                           minValue='0'
                           maxValue='100000'
-                          step='0.1'
+                          step='100'
                       />
                   </div>
 
@@ -254,8 +263,9 @@ const detailedUse = [
                   <div style={rightColumn} className="rightColumn">
 
                       <SelectFacet
-                          title='Detailed Property Use'
+                          title='Building Architectual Type'
                           options={this.state.archType}
+                          customStyles={buildingTypeStyle}
                       />
 
                       <BufferFacet />
