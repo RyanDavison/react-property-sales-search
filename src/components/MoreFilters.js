@@ -4,6 +4,7 @@ import axios from 'axios';
 import Qualification from './Qualification';
 import RangeFacet from './RangeFacet';
 import SelectFacet from './SelectFacet';
+import BufferFacet from './BufferFacet';
 
 
 const filterStyles = {
@@ -47,14 +48,13 @@ const leftColumn = {
 const rightColumn = {
     width: "18em",
     height: "100%",
-    float:"right"
+    float:"left"
 }
 
 const column = {
     width: "33%",
     height: "99%",
     float:"left",
-    // margin: "0 1em",
 }
 
 const modalStyle = {
@@ -101,11 +101,17 @@ const majorArea = [
 
 const detailedUse = [
     {value: "Any", label: "Any"},
-    {value: "GrandJunction", label: "Grand Junction"},
-    {value: "Palisade", label: "Palisade"},
-    {value: "FruitaLoma", label: "Fruita/Loma"},
-    {value: "OutlyingAreas", label: "Outlying Areas"},
-    {value: "Unknown", label: "Unknown"}
+    {value: "4000", label: "Agricultural"},
+    {value: "2000", label: "Commercial"},
+    {value: "1004", label: "Condo"},
+    {value: "1001", label: "Duplex/Triplex"},
+    {value: "1000", label: "Residential"},
+    {value: "1003", label: "Townhouse"},
+    {value: "1002", label: "Multi-Fam 4-8"},
+    {value: "1005", label: "Multi 9 - up"},
+    {value: "3000", label: "Industrial"},
+    {value: "9000", label: "Exempt"},
+    {value: "7000", label: "Oil & Gas"}
 ]
 
     class MoreFilters extends Component {
@@ -204,6 +210,11 @@ const detailedUse = [
                       />
 
                       <SelectFacet
+                          title='Detailed Property Use'
+                          options={detailedUse}
+                      />
+
+                      <SelectFacet
                           title='Economic Area'
                           options={economicArea}
                       />
@@ -213,10 +224,6 @@ const detailedUse = [
                           options={this.state.hoods}
                       />
 
-                      <SelectFacet
-                          title='Detailed Property Use'
-                          options={detailedUse}
-                      />
                   </div>
 
                   <div style={rightColumn} className="rightColumn">
@@ -225,6 +232,8 @@ const detailedUse = [
                           title='Detailed Property Use'
                           options={this.state.archType}
                       />
+
+                      <BufferFacet />
 
 
                       <div style={buttonGroupStyle} className='buttonGroup'>

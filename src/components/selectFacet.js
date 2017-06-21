@@ -4,14 +4,11 @@ import PropTypes from 'prop-types';
 
 const selectFacetStyle = {
     display: 'block',
-    // border: '1px solid #ccc',
-    // borderRadius: '4px',
     padding: '0.5em 0 2em 1.5em',
     marginBottom:'1em',
     top: '0',
     height: '2.8em',
     width: '16em'
-    // boxShadow: '1px 1px 5px #888888'
 }
 const selectFacetLabelStyle = {
     display: 'block',

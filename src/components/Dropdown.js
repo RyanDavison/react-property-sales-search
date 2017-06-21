@@ -9,8 +9,7 @@ import '../styles/Dropdown.css';
               value: props.value,
               display: false,
               listItems: props.option,
-              baseClass: props.baseclass,
-              customStyles: props.customStyles
+              baseClass: props.baseclass
           };
       }
 
@@ -46,10 +45,10 @@ showHide = (event) =>{
             "display":this.state.display? "block":"none"
         }
       return (
-          <div style={{...this.state.customStyles.ulContainer}}
+          <div style={{...this.props.customStyles.ulContainer}}
               className={`dropdown ${this.state.baseClass}`}>{this.state.value}
               <span className={`dropdown ${this.state.baseClass}`}>&#9660;</span>
-              <ul style={{...ulDisplay, ...this.state.customStyles.dropNav}}
+              <ul style={{...ulDisplay, ...this.props.customStyles.dropNav}}
                   className='drop-nav display' onClick={this.selectNode}>
                   {this.state.listItems.map(item =>{
                       return <li key={item.value} className={item.type} >{item.value}</li>
