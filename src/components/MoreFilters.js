@@ -74,6 +74,28 @@ const modalStyle = {
     }
 }
 
+const majorAreaStyle = {
+    component:{
+        'float':'left',
+        'width':'7em'
+    },
+    select: {}
+}
+
+const detailedUseStyle = {
+    component:{
+        'display':'inline-block',
+        'marginLeft':'-4em',
+        'width':'8.5em'
+    }
+}
+
+const neighborhoodStyle = {
+    select: {
+        'height':'13.5em'
+    }
+}
+
 const economicArea = [
     {value: "Any", label: "Any"},
     {value: "Clifton / D 1/2 Rd Area", label: "Clifton / D 1/2 Rd Area"},
@@ -207,11 +229,13 @@ const detailedUse = [
                       <SelectFacet
                           title='Major Area'
                           options={majorArea}
+                          customStyles={majorAreaStyle}
                       />
 
                       <SelectFacet
                           title='Detailed Property Use'
                           options={detailedUse}
+                          customStyles={detailedUseStyle}
                       />
 
                       <SelectFacet
@@ -222,6 +246,7 @@ const detailedUse = [
                       <SelectFacet
                           title='Neighborhood/Subdivision'
                           options={this.state.hoods}
+                          customStyles={neighborhoodStyle}
                       />
 
                   </div>

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
 const bufferFacetStyle = {
-    display: 'block',
-    border: '1px solid #ccc',
-    borderRadius: '4px',
-    padding: '0.5em 0 2em 1.5em',
-    marginBottom:'1em',
-    top: '0',
-    height: '2.8em',
-    width: '16em',
-    boxShadow: '1px 1px 5px #888888'
+    'display': 'block',
+    'border': '1px solid #ccc',
+    'borderRadius': '4px',
+    'padding': '0.5em 0 2em 1.5em',
+    'marginBottom':'1em',
+    'top': '0',
+    'height': '2.8em',
+    'width': '16em',
+    'boxShadow': '1px 1px 5px #888888'
 }
 const bufferFacetLabelStyle = {
     display: 'block',
@@ -35,7 +35,7 @@ const inputStyle = {
 
     render() {
       return (
-          <div style={bufferFacetStyle}>
+          <div style={{...bufferFacetStyle}}>
               <label style={bufferFacetLabelStyle}>Buffer</label>
               <div>
                   <span>Enter Address or Parcel No.</span><input title='Enter Parcel Number or Address' type='text' id='bufferString' />
