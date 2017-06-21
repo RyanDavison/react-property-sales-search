@@ -29,8 +29,7 @@ const inputStyle = {
       constructor(props){
           super(props)
           this.state = {
-              minValue: this.props.minValue,
-              maxValue: this.props.maxValue
+
           }
       }
 
@@ -39,12 +38,12 @@ const inputStyle = {
           <div style={bufferFacetStyle}>
               <label style={bufferFacetLabelStyle}>Buffer</label>
               <div>
-                  <span>Enter Address or Parcel No.</span><input title='Enter Parcel Number or Address' type='text' id='bufferString'>
-                      <button id='clear' title='Clear the list'>Clear</button>
-                      <div id='bufferdiv'>
-                          <label for='buffer'>Buffer above entry</label>
-                          <input type='number' min='0' step='.25' name='buffer' id='buffer'>
-                              <span>miles</span>
+                  <span>Enter Address or Parcel No.</span><input title='Enter Parcel Number or Address' type='text' id='bufferString' />
+                  <button id='clear' title='Clear the list'>Clear</button>
+                  <div id='bufferdiv'>
+                      <label for='buffer'>Buffer above entry</label>
+                      <input type='number' min='0' step='.25' name='buffer' id='buffer' />
+                      <span>miles</span>
                           </div>
                       </div>
                   </div>
