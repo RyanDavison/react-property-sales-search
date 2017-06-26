@@ -167,8 +167,8 @@ const detailedUse = [
             return
         })
     };
-    fetchData('neighborhood', 'hoods', 'NBHD_DESC');
-    fetchData('building', 'archType', 'type');
+    fetchData('query/retrieve/neighborhood', 'hoods', 'NBHD_DESC');
+    fetchData('query/retrieve/building', 'archType', 'type');
     }
 
     toggleModal = () => {
@@ -183,7 +183,7 @@ const detailedUse = [
             ACCOUNTNO: 'R05552'
         }
 
-        axios.post('http://localhost:3000/query', data)//data is a function that returns the state of the search facets
+        axios.post('http://localhost:3000/query/count', data)//data is a function that returns the state of the search facets
         .then(res =>{
             this.setState({
                 count: res.data

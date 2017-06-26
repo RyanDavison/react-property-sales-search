@@ -9,7 +9,8 @@
 # production
 /build
 /server
-sqlConfig.js
+defaultConfig.js
+autocompleteConfig.js
 
 # misc
 .DS_Store
