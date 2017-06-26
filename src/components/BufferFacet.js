@@ -58,7 +58,7 @@ const ulStyle = {
           Array.from(document.querySelectorAll('.facet')).forEach(el =>{
               el.addEventListener("click", ()=>{
                   setTimeout(()=>{
-                      console.log(this.state.distance)
+                    //   console.log(this.state.distance)
                   })
               })
           })
@@ -67,7 +67,7 @@ const ulStyle = {
       componentWillUnmount(){
           Array.from(document.querySelectorAll('.facet')).forEach(el =>{
               el.removeEventListener("click", ()=>{
-                  console.log(this.state.distance)
+                //   console.log(this.state.distance)
               })
           })
       }
@@ -94,7 +94,7 @@ const ulStyle = {
       }
 
       clearList = () =>{
-          document.querySelectorAll('.milesBuffer')[0].value = 0;
+        //   document.querySelectorAll('.milesBuffer')[0].value = 0;
           this.setState({
               address: "",
               addressList:[],
@@ -125,8 +125,8 @@ const ulStyle = {
                   <div style={{"fontSize":"0.7em"}} id='bufferdiv'>
                       <label style={{"float":"left", "fontSize":"0.9em", "marginTop":"0.5em"}} for='buffer'>Buffer above entry</label>
                       <input style={{"fontSize":"0.9em", "width":"4em", "float":"left", "marginLeft":"1em", "marginTop":"0.3em"}}
-                          type='number' min='0' step='.25' name='buffer' className='facet milesBuffer'
-                          onClick={i=>{this.setState({distance:i.target.value});return}}/>
+                          value={this.state.distance} type='number' min='0' step='.25' name='buffer' className='facet milesBuffer'
+                          onChange={i=>{this.setState({distance:i.target.value});return}}/>
                       <span style={{"marginTop":"0.5em", "float":"left", "marginLeft":"1em", "marginTop":"0.3em"}}>miles</span>
                   </div>
               </div>
