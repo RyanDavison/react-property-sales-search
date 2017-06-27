@@ -4,7 +4,7 @@ import axios from 'axios';
 import Qualification from './Qualification';
 import RangeFacet from './RangeFacet';
 import SelectFacet from './SelectFacet';
-import BufferFacet from './BufferFacet';
+import BufferFacet from './BufferFacet/BufferFacet';
 
 
 const filterStyles = {
@@ -183,7 +183,7 @@ const detailedUse = [
             ACCOUNTNO: 'R05552'
         }
 
-        axios.post('http://localhost:3000/query/count', data)//data is a function that returns the state of the search facets
+        axios.post('http://localhost:3000/query', data)//data is a function that returns the state of the search facets
         .then(res =>{
             this.setState({
                 count: res.data

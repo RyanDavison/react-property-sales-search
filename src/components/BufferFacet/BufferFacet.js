@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../styles/bufferFacet.css';
+import './style/bufferFacet.css';
 
 const bufferFacetStyle = {
     display: 'block',
@@ -94,7 +94,6 @@ const ulStyle = {
       }
 
       clearList = () =>{
-        //   document.querySelectorAll('.milesBuffer')[0].value = 0;
           this.setState({
               address: "",
               addressList:[],
@@ -119,14 +118,18 @@ const ulStyle = {
               <label style={bufferFacetLabelStyle}>Buffer</label>
               <div>
                   <span style={{"fontSize":"0.7em", "float":"left"}}>Enter Address or Parcel No.</span>
+
                   <input value={this.state.address} type='text' onChange={this.changed} className='bufferInput' style={{"fontSize":"0.7em", "width":"14em", "float":"left"}} title='Enter Parcel Number or Address' />
                   <div style={this.state.visible}><ul onClick={this.populateAddress} style={ulStyle}>{this.state.addressList}</ul></div>
                   <button onClick={this.clearList} style={{"float":"left", "marginLeft":"1em", "marginTop":"-0.1em"}} title='Clear the list'>Clear</button>
+
                   <div style={{"fontSize":"0.7em"}} id='bufferdiv'>
                       <label style={{"float":"left", "fontSize":"0.9em", "marginTop":"0.5em"}} for='buffer'>Buffer above entry</label>
+
                       <input style={{"fontSize":"0.9em", "width":"4em", "float":"left", "marginLeft":"1em", "marginTop":"0.3em"}}
                           value={this.state.distance} type='number' min='0' step='.25' name='buffer' className='facet milesBuffer'
                           onChange={i=>{this.setState({distance:i.target.value});return}}/>
+
                       <span style={{"marginTop":"0.5em", "float":"left", "marginLeft":"1em", "marginTop":"0.3em"}}>miles</span>
                   </div>
               </div>
