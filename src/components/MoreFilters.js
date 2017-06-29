@@ -86,7 +86,8 @@ const modalStyle = {
 const majorAreaStyle = {
     component:{
         'float':'left',
-        'width':'7em'
+        'paddingTop':'1em',
+        'width':'38%'
     },
     select: {}
 }
@@ -94,8 +95,8 @@ const majorAreaStyle = {
 const detailedUseStyle = {
     component:{
         'display':'inline-block',
-        'marginLeft':'-4em',
-        'width':'8.5em'
+        'padding':'1em 0 0 0',
+        'width':'48%'
     }
 }
 
