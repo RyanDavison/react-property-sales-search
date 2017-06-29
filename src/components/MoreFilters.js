@@ -39,21 +39,29 @@ const buttonStyle = {
 }
 
 const leftColumn = {
-    width: "33%",
-    minHeight: "95%",
-    float:"left",
-    marginLeft:'1.5em',
-    marginTop:'1em'
+    width: '30%',
+    minHeight: '95%',
+    float: 'left',
+    marginLeft: '2.5%',
+    marginTop: '1em'
+}
+
+const centerColumn = {
+    width: '30%',
+    marginLeft: '2.5%',
+    height: '99%',
+    float: 'left'
 }
 
 const rightColumn = {
-    width: "18em",
-    height: "100%",
-    float:"left"
+    width: '30%',
+    marginRight: '2.5%',
+    height: '100%',
+    float: 'right'
 }
 
 const column = {
-    width: "33%",
+    width: "30%",
     height: "99%",
     float:"left",
 }
@@ -234,7 +242,7 @@ const detailedUse = [
                       />
                   </div>
 
-                  <div style={column} className="centerColumn">
+                  <div style={centerColumn} className="centerColumn">
                       <SelectFacet
                           title='Major Area'
                           options={majorArea}
