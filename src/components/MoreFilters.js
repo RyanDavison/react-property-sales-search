@@ -24,9 +24,10 @@ const arrowSpanStyles = {
 }
 
 const buttonGroupStyle = {
-    position: 'absolute',
-    bottom: '1em',
-    right: '1em'
+    // position: 'absolute',
+    // bottom: '1em',
+    // right: '1em'
+    textAlign:'right'
 }
 
 const buttonStyle = {
@@ -188,7 +189,6 @@ const detailedUse = [
             this.setState({
                 count: res.data
             });
-            console.dir(res.data)
         })
     }
 
