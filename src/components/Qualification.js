@@ -15,7 +15,7 @@ const qualificationStyle = {
     marginBottom: '1em',
     top: '0',
     height: '2.8em',
-    width: '12em',
+    width: '75%',
     boxShadow: '1px 1px 5px #888888'
 }
 const qualificationLabelStyle = {

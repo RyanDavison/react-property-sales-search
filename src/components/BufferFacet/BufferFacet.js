@@ -7,12 +7,11 @@ const bufferFacetStyle = {
     border: '1px solid #ccc',
     borderRadius: '4px',
     padding: '0.5em 0 1em 0.5em',
-    marginLeft: '1.4em',
+    marginLeft: '1.75em',
     marginBottom:'1em',
     marginTop: '1em',
-    top: '0',
     height: '5em',
-    width: '16em',
+    width: '85%',
     boxShadow: '1px 1px 5px #888888'
 }
 const bufferFacetLabelStyle = {

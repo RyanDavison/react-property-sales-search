@@ -8,7 +8,7 @@ const selectFacetStyle = {
     'marginBottom':'1em',
     'top': '0',
     'height': '2.8em',
-    'width': '16em'
+    'width': '90%'
 }
 const selectFacetLabelStyle = {
     display: 'block',

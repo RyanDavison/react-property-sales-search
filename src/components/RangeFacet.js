@@ -9,7 +9,7 @@ const rangeFacetStyle = {
     marginBottom:'1em',
     top: '0',
     height: '2.8em',
-    width: '16em',
+    width: '90%',
     boxShadow: '1px 1px 5px #888888'
 }
 const rangeFacetLabelStyle = {

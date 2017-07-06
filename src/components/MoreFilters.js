@@ -251,7 +251,7 @@ const detailedUse = [
                       />
 
                       <SelectFacet
-                          title='Detailed Property Use'
+                          title='Property Use'
                           options={detailedUse}
                           customStyles={detailedUseStyle}
                       />
