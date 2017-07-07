@@ -25,6 +25,7 @@
     "enzyme": "^2.8.2",
     "react-scripts": "1.0.7",
     "react-test-renderer": "^15.6.1",
+    "redux-immutable-state-invariant": "^2.0.0",
     "sinon": "^2.3.4"
   },
   "scripts": {
