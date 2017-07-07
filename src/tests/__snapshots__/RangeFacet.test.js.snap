@@ -12,7 +12,7 @@ exports[`<RangeFacet /> renders without crashing 1`] = `
       "marginBottom": "1em",
       "padding": "0.5em 0 2em 1.5em",
       "top": "0",
-      "width": "16em",
+      "width": "90%",
     }
   }
 >
@@ -47,6 +47,7 @@ exports[`<RangeFacet /> renders without crashing 1`] = `
       style={
         Object {
           "display": "block",
+          "textAlign": "left",
         }
       }
     >
@@ -81,6 +82,7 @@ exports[`<RangeFacet /> renders without crashing 1`] = `
       style={
         Object {
           "display": "block",
+          "textAlign": "left",
         }
       }
     >
