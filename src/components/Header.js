@@ -5,15 +5,15 @@ const HeaderBackground = {
       backgroundColor: "#013E6B"
 }
 
-const HeaderImage = {
-      paddingTop: "0.5%",
-      width:'100%'
-}
+// const HeaderImage = {
+//       paddingTop: "0.5%",
+//       width:'100%'
+// }
 
 const Header = () =>
   (
       <div style={HeaderBackground} className="header">
-          <a href="http://www.mesacounty.us"><img style={HeaderImage} src={logo} className="App-logo" alt="logo" /></a>
+          <a href="http://www.mesacounty.us"><img src={logo} className="App-logo" alt="logo" /></a>
       </div>
   );
 
