@@ -1,5 +1,5 @@
-import * as action from './actionTypes';
+import * as actions from './actionTypes';
 
 export function toggleModal(modalIsOpen){
-    return {type: action.TOGGLE_MODAL, modalIsOpen};
+    return {type: actions.TOGGLE_MODAL, modalIsOpen};
 }
