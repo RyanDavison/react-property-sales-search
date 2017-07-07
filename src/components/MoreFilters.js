@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+import { Button, Grid, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import Qualification from './Qualification';
 import RangeFacet from './RangeFacet';
@@ -24,9 +25,6 @@ const arrowSpanStyles = {
 }
 
 const buttonGroupStyle = {
-    // position: 'absolute',
-    // bottom: '1em',
-    // right: '1em'
     textAlign:'right'
 }
 
@@ -39,38 +37,25 @@ const buttonStyle = {
 }
 
 const leftColumn = {
-    width: '30%',
-    minHeight: '95%',
-    float: 'left',
-    marginLeft: '2.5%',
-    marginTop: '1em'
-}
-
-const centerColumn = {
-    width: '30%',
-    marginLeft: '2.5%',
-    height: '99%',
-    float: 'left'
+    verticalAlign: 'top',
+    marginTop:'1.4em'
 }
 
 const rightColumn = {
-    width: '30%',
-    marginRight: '2.5%',
-    height: '100%',
-    float: 'right'
+    verticalAlign: 'top',
+    marginTop:'0.5em'
 }
 
 const column = {
-    width: "30%",
-    height: "99%",
-    float:"left",
+    display:'inline-block',
+    width: '18em'
 }
 
 const modalStyle = {
     overlay:{
         top: 246,
-        left: '15%',
-        right: '15%'
+        left: '0',
+        right: '0'
     },
     content:{
         textAlign: 'center',
@@ -85,8 +70,11 @@ const modalStyle = {
 
 const majorAreaStyle = {
     component:{
-        'float':'left',
+        // 'float':'left',
+        display:'inline-block',
+        marginRight:'0.8em',
         'paddingTop':'1em',
+        'paddingLeft':'1.1em',
         'width':'38%'
     },
     select: {}
@@ -193,7 +181,7 @@ const detailedUse = [
             ACCOUNTNO: 'R05552'
         }
 
-        axios.post('http://localhost:3000/query', data)//data is a function that returns the state of the search facets
+        axios.post('http://localhost:3000/query/count', data)//data is a function that returns the state of the search facets
         .then(res =>{
             this.setState({
                 count: res.data
@@ -212,7 +200,9 @@ const detailedUse = [
                   shouldCloseOnOverlayClick={true}
                   contentLabel="MCModal"
               >
-                  <div style={leftColumn} className="leftColumn">
+
+
+                  <div style={{...column, ...leftColumn}} className="leftColumn">
                       <Qualification />
 
                       <RangeFacet
@@ -243,7 +233,8 @@ const detailedUse = [
                       />
                   </div>
 
-                  <div style={centerColumn} className="centerColumn">
+
+                  <div style={column} className="centerColumn">
                       <SelectFacet
                           title='Major Area'
                           options={majorArea}
@@ -269,7 +260,9 @@ const detailedUse = [
 
                   </div>
 
-                  <div style={rightColumn} className="rightColumn">
+
+
+                  <div style={{...column, ...rightColumn}} className="rightColumn">
 
                       <SelectFacet
                           title='Building Architectual Type'
@@ -281,12 +274,10 @@ const detailedUse = [
 
 
                       <div style={buttonGroupStyle} className='buttonGroup'>
-                          <button style={buttonStyle} onClick={this.getCount}>View {this.state.count} records</button>
-                          <button style={buttonStyle} onClick={this.toggleModal}>Cancel</button>
+                          <Button style={buttonStyle} onClick={this.getCount}>View {this.state.count} records</Button>
+                          <Button style={buttonStyle} onClick={this.toggleModal}>Cancel</Button>
                       </div>
                   </div>
-
-
 
               </Modal>
           </div>
