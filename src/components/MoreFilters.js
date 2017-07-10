@@ -87,7 +87,7 @@ const detailedUseStyle = {
     component:{
         'display':'inline-block',
         'padding':'1em 0 0 0',
-        'width':'48%'
+        'width':'47.3%'
     }
 }
 
