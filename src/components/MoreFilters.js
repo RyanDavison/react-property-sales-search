@@ -292,10 +292,9 @@ const detailedUse = [
 
 
     const mapStateToProps = (state, ownProps)=>{
-        console.log(11, state.recordCount)
         return {
             modalIsOpen: state.modalDisplay.modalIsOpen,
-            recordCount: state.recordCount.recordCount
+            recordCount: state.recordCount.count
         }
     }
 

@@ -5,5 +5,5 @@ export function toggleModal(modalIsOpen){
 }
 
 export function updateRecordCountButton(count){
-    return {type: actions.UPDATE_COUNT, recordCount: count};
+    return {type: actions.UPDATE_COUNT, count: count};
 }
