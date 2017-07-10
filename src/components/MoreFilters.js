@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
-import { Button, Grid, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import Qualification from './Qualification';
 import RangeFacet from './RangeFacet';
 import SelectFacet from './SelectFacet';
 import BufferFacet from './BufferFacet/BufferFacet';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as salesLookupActions from '../actions/salesLookupActions';
 
 
 const filterStyles = {
@@ -147,7 +150,7 @@ const detailedUse = [
         constructor(props){
             super(props);
             this.state = {
-                modalIsOpen: false,
+                // modalIsOpen: false,
                 count: "0",
                 hoods: undefined,
                 archType: undefined
@@ -170,9 +173,7 @@ const detailedUse = [
     }
 
     toggleModal = () => {
-        this.setState({
-            modalIsOpen: !this.state.modalIsOpen
-        });
+        this.props.actions.toggleModal(!this.props.modalIsOpen)
     }
 
     getCount = ()=>{
@@ -195,7 +196,7 @@ const detailedUse = [
               {this.props.message}<span style={arrowSpanStyles}>&#9660;</span>
               <Modal
                   style={modalStyle}
-                  isOpen={this.state.modalIsOpen}
+                  isOpen={this.props.modalIsOpen}
                   onRequestClose={this.toggleModal}
                   shouldCloseOnOverlayClick={true}
                   contentLabel="MCModal"
@@ -274,8 +275,8 @@ const detailedUse = [
 
 
                       <div style={buttonGroupStyle} className='buttonGroup'>
-                          <Button style={buttonStyle} onClick={this.getCount}>View {this.state.count} records</Button>
-                          <Button style={buttonStyle} onClick={this.toggleModal}>Cancel</Button>
+                          <button style={buttonStyle} onClick={this.getCount}>View {this.state.count} records</button>
+                          <button style={buttonStyle} onClick={this.toggleModal}>Cancel</button>
                       </div>
                   </div>
 
@@ -285,5 +286,23 @@ const detailedUse = [
       }
     }
 
+    MoreFilters.propTypes = {
+        modalIsOpen: PropTypes.bool.isRequired,
+        actions: PropTypes.object.isRequired
+    }
 
-export default MoreFilters;
+
+    const mapStateToProps = (state, ownProps)=>{
+        return {
+            modalIsOpen: state.modalDisplay.modalIsOpen
+        }
+    }
+
+    const mapDispatchToProps = (dispatch)=>{
+        return {
+            actions: bindActionCreators(salesLookupActions, dispatch)
+        }
+    }
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MoreFilters);

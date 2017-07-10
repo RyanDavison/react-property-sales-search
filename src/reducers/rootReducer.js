@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import display from './displayReducer';
+import modalDisplay from './displayReducer';
 
 const rootReducer = combineReducers({
-    display
+    modalDisplay
 });
 
 export default rootReducer;
