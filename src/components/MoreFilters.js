@@ -184,9 +184,7 @@ const detailedUse = [
 
         axios.post('http://localhost:3000/query/count', data)//data is a function that returns the state of the search facets
         .then(res =>{
-            this.setState({
-                count: res.data
-            });
+            this.props.actions.updateRecordCountButton(res.data)
         })
     }
 
@@ -275,7 +273,7 @@ const detailedUse = [
 
 
                       <div style={buttonGroupStyle} className='buttonGroup'>
-                          <button style={buttonStyle} onClick={this.getCount}>View {this.state.count} records</button>
+                          <button style={buttonStyle} onClick={this.getCount}>View {this.props.recordCount} records</button>
                           <button style={buttonStyle} onClick={this.toggleModal}>Cancel</button>
                       </div>
                   </div>
@@ -288,13 +286,16 @@ const detailedUse = [
 
     MoreFilters.propTypes = {
         modalIsOpen: PropTypes.bool.isRequired,
+        recordCount: PropTypes.string.isRequired,
         actions: PropTypes.object.isRequired
     }
 
 
     const mapStateToProps = (state, ownProps)=>{
+        console.log(11, state.recordCount)
         return {
-            modalIsOpen: state.modalDisplay.modalIsOpen
+            modalIsOpen: state.modalDisplay.modalIsOpen,
+            recordCount: state.recordCount.recordCount
         }
     }
 
