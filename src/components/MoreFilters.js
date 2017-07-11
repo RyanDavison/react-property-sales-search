@@ -177,15 +177,7 @@ const detailedUse = [
     }
 
     getCount = ()=>{
-        //Placeholder data. This should go away when global state is implemented.
-        const data = {
-            ACCOUNTNO: 'R05552'
-        }
-
-        axios.post('http://localhost:3000/query/count', data)//data is a function that returns the state of the search facets
-        .then(res =>{
-            this.props.actions.updateRecordCountButton(res.data)
-        })
+        this.props.actions.updateRecordCountButton(data)
     }
 
       render() {
