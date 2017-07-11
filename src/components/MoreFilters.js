@@ -150,7 +150,7 @@ const detailedUse = [
         constructor(props){
             super(props);
             this.state = {
-                // modalIsOpen: false,
+                modalIsOpen: false,
                 count: "0",
                 hoods: undefined,
                 archType: undefined
@@ -293,6 +293,7 @@ const detailedUse = [
 
     const mapStateToProps = (state, ownProps)=>{
         return {
+            //Use Redux to manage modal display for future use
             modalIsOpen: state.modalDisplay.modalIsOpen,
             recordCount: state.recordCount.count
         }
