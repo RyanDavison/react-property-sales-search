@@ -56,7 +56,7 @@ const column = {
 
 const modalStyle = {
     overlay:{
-        top: 246,
+        top: 247,
         left: '0',
         right: '0'
     },
