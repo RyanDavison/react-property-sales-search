@@ -297,39 +297,39 @@ const customStyles = {
                           onChange={this.props.actions.updateMajorArea}
                       />
 
-                      <SelectFacet
+                      {/* <SelectFacet
                           title='Property Use'
                           options={detailedUse}
                           defaultOption='Any'
                           customStyles={detailedUseStyle}
-                      />
+                          />
 
-                      <SelectFacet
+                          <SelectFacet
                           title='Economic Area'
                           options={economicArea}
                           defaultOption='Any'
-                      />
+                          />
 
-                      <SelectFacet
+                          <SelectFacet
                           title='Neighborhood/Subdivision'
                           options={this.state.neighborhoodOptions}
                           defaultOption='Any'
                           customStyles={neighborhoodStyle}
-                      />
+                      /> */}
 
 
                   </div>
 
 
-                  
+
                   <div style={{...column, ...rightColumn}} className="rightColumn">
 
-                      <SelectFacet
+                      {/* <SelectFacet
                           title='Building Architectural Type'
                           options={this.state.archTypeOptions}
                           defaultOption='Any'
                           customStyles={buildingTypeStyle}
-                      />
+                      /> */}
 
                       <BufferFacet />
 

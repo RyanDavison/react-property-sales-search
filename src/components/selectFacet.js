@@ -30,27 +30,23 @@ const inputStyle = {
           super(props)
       }
 
-      componentDidMount = () => {
-          this.props.onChange('Any');
-      }
-
       handleChange = (select) =>{
           this.props.onChange(select.target.options)
       }
 
 
     render() {
-        // const defaultOption = this.props.defaultOption;
+        const defaultOption = this.props.defaultOption;
       return (
           <div style={{...selectFacetStyle, ...this.props.customStyles.component}}>
               <label style={selectFacetLabelStyle}>{this.props.title}</label>
               <select style={{...inputStyle, ...this.props.customStyles.select}} value={this.props.majorAreas} onChange={this.handleChange} multiple>
                   {this.props.options.map(item =>{
-                      //   if(item.value === {defaultOption}){
-                      //       return <option key={item.value} value={item.value} selected>{item.label}</option>
-                      //   }else{
-                          return <option key={item.value} value={item.value} >{item.label}</option>
-                          //   }
+                      if(item.value === defaultOption){
+                          return <option key={item.value} value={item.value} selected>{item.label}</option>
+                      }else{
+                      return <option key={item.value} value={item.value} >{item.label}</option>
+                  }
 
                   })}
               </select>

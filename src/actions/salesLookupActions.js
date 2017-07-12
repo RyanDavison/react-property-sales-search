@@ -45,18 +45,21 @@ export function updateMaxSquareFeet(maxSquareFeet){
     return {type: actions.UPDATE_MAX_SQUARE_FEET, maxSquareFeet};
 }
 
+function createOptionsList(options){
+    let optionsList = [];
+    [].forEach.call(options, (option)=>{
+        if(option.selected){
+            optionsList.push(option.value)
+        }
+    });
+    return optionsList
+}
+
 export function updateMajorArea(majorAreaList){
-    console.log(typeof majorAreaList)
     if (typeof majorAreaList === 'string') {
         return {type: actions.UPDATE_MAJOR_AREA, majorAreas: [majorAreaList]};
     }
-    let majorAreas = [];
-    [].forEach.call(majorAreaList, (option)=>{
-        if(option.selected){
-            majorAreas.push(option.value)
-        }
-    });
-    return {type: actions.UPDATE_MAJOR_AREA, majorAreas};
+    return {type: actions.UPDATE_MAJOR_AREA, majorAreas: createOptionsList(majorAreaList)};
 }
 
 export function updateRecordCountButtonSuccess(recordCount){
