@@ -28,30 +28,30 @@ const inputStyle = {
   class SelectFacet extends Component {
       constructor(props){
           super(props)
-          this.state = {
-              selected: ["Any"]
-          }
+      }
+
+      componentDidMount = () => {
+          this.props.onChange('Any');
       }
 
       handleChange = (select) =>{
-          let result = [];
-          [].forEach.call(select.target.options, (option)=>{
-              if(option.selected){
-                  result.push(option.value)
-              }
-          });
-          this.setState({selected: result});
-          return
+          this.props.onChange(select.target.options)
       }
 
 
     render() {
+        // const defaultOption = this.props.defaultOption;
       return (
           <div style={{...selectFacetStyle, ...this.props.customStyles.component}}>
               <label style={selectFacetLabelStyle}>{this.props.title}</label>
-              <select style={{...inputStyle, ...this.props.customStyles.select}} value={this.state.selected} onChange={this.handleChange} multiple>
+              <select style={{...inputStyle, ...this.props.customStyles.select}} value={this.props.majorAreas} onChange={this.handleChange} multiple>
                   {this.props.options.map(item =>{
-                      return <option key={item.value} value={item.value} >{item.label}</option>
+                      //   if(item.value === {defaultOption}){
+                      //       return <option key={item.value} value={item.value} selected>{item.label}</option>
+                      //   }else{
+                          return <option key={item.value} value={item.value} >{item.label}</option>
+                          //   }
+
                   })}
               </select>
           </div>
@@ -62,6 +62,8 @@ const inputStyle = {
   SelectFacet.propTypes = {
       title: PropTypes.string.isRequired,
       options: PropTypes.array.isRequired,
+      onChange: PropTypes.func.isRequired,
+      majorAreas: PropTypes.object.isRequired
   }
 
   SelectFacet.defaultProps = {

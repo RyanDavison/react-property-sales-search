@@ -291,23 +291,29 @@ const customStyles = {
                       <SelectFacet
                           title='Major Area'
                           options={majorArea}
+                          defaultOption='Any'
+                          selected={this.props.majorAreas}
                           customStyles={majorAreaStyle}
+                          onChange={this.props.actions.updateMajorArea}
                       />
 
                       <SelectFacet
                           title='Property Use'
                           options={detailedUse}
+                          defaultOption='Any'
                           customStyles={detailedUseStyle}
                       />
 
                       <SelectFacet
                           title='Economic Area'
                           options={economicArea}
+                          defaultOption='Any'
                       />
 
                       <SelectFacet
                           title='Neighborhood/Subdivision'
                           options={this.state.neighborhoodOptions}
+                          defaultOption='Any'
                           customStyles={neighborhoodStyle}
                       />
 
@@ -315,12 +321,13 @@ const customStyles = {
                   </div>
 
 
-
+                  
                   <div style={{...column, ...rightColumn}} className="rightColumn">
 
                       <SelectFacet
-                          title='Building Architectual Type'
+                          title='Building Architectural Type'
                           options={this.state.archTypeOptions}
+                          defaultOption='Any'
                           customStyles={buildingTypeStyle}
                       />
 
@@ -358,6 +365,7 @@ const customStyles = {
             maxAcreage: state.facets.maxAcreage,
             minSquareFeet: state.facets.minSquareFeet,
             maxSquareFeet: state.facets.maxSquareFeet,
+            majorAreas: state.facets.majorAreas,
             // archTypeOptions: state.facets.archTypeOptions,
             // neighborhoodOptions: state.facets.neighborhoodOptions,
             recordCount: state.records.recordCount
