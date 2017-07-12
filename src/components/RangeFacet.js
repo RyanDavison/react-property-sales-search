@@ -38,21 +38,23 @@ const inputStyle = {
   class RangeFacet extends Component {
       constructor(props){
           super(props)
-          this.state = {
-              minValue: this.props.minValue,
-              maxValue: this.props.maxValue
-          }
+        //   this.state = {
+        //       minValue: this.props.minValue,
+        //       maxValue: this.props.maxValue
+        //   }
       }
 
       changeMin = (event) =>{
-          this.setState({
-              minValue: event.target.value
-          })
+          this.props.onMinChange(event.target.value);
+        //   this.setState({
+        //       minValue: event.target.value
+        //   })
       }
       changeMax = (event) =>{
-          this.setState({
-              maxValue: event.target.value
-          })
+          this.props.onMaxChange(event.target.value);
+        //   this.setState({
+        //       maxValue: event.target.value
+        //   })
       }
     render() {
       return (
@@ -60,12 +62,12 @@ const inputStyle = {
               <label style={rangeFacetLabelStyle}>{this.props.title}</label>
               <div style={rangeBlock}>
                   <label style={{"display":"block", "textAlign":"left"}} className='range'>{this.props.minLabel}</label>
-                  <input style={inputStyle} className='facet access' type='number' step={this.props.step} value={this.state.minValue}
+                  <input style={inputStyle} className='facet access' type='number' step={this.props.step} value={this.props.minValue}
                       onChange={this.changeMin} />
               </div>
               <div style={rangeBlock}>
                   <label style={{"display":"block", "textAlign":"left"}} className='range'>{this.props.maxLabel}</label>
-                  <input style={inputStyle} className='facet access' type='number' step={this.props.step} value={this.state.maxValue}
+                  <input style={inputStyle} className='facet access' type='number' step={this.props.step} value={this.props.maxValue}
                       onChange={this.changeMax} />
               </div>
           </div>

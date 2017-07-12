@@ -151,9 +151,9 @@ const detailedUse = [
             super(props);
             this.state = {
                 modalIsOpen: false,
-                count: "0",
-                hoods: undefined,
-                archType: undefined
+                // count: "0",
+                neighborhoodOptions: undefined,
+                archTypeOptions: undefined
             }
         }
 
@@ -168,8 +168,8 @@ const detailedUse = [
             return
         })
     };
-    fetchData('query/retrieve/neighborhood', 'hoods', 'NBHD_DESC');
-    fetchData('query/retrieve/building', 'archType', 'type');
+    fetchData('query/retrieve/neighborhood', 'neighborhoodOptions', 'NBHD_DESC');
+    fetchData('query/retrieve/building', 'archTypeOptions', 'type');
     }
 
     toggleModal = () => {
@@ -177,6 +177,10 @@ const detailedUse = [
     }
 
     getCount = ()=>{
+        //data will be replaced by a prop showing object from state
+        const data = {
+            ACCOUNTNO: 'R05552'
+        }
         this.props.actions.updateRecordCountButton(data)
     }
 
@@ -200,8 +204,10 @@ const detailedUse = [
                           title='Sale Amount'
                           minLabel='Min Sale Amount'
                           maxLabel='Max Sale Amount'
-                          minValue='0'
-                          maxValue='10000000'
+                          minValue={this.props.minSaleAmount}
+                          maxValue={this.props.maxSaleAmount}
+                          onMinChange={this.props.actions.updateMinSaleAmount}
+                          onMaxChange={this.props.actions.updateMaxSaleAmount}
                           step='10000'
                       />
 
@@ -245,9 +251,10 @@ const detailedUse = [
 
                       <SelectFacet
                           title='Neighborhood/Subdivision'
-                          options={this.state.hoods}
+                          options={this.state.neighborhoodOptions}
                           customStyles={neighborhoodStyle}
                       />
+
 
                   </div>
 
@@ -257,7 +264,7 @@ const detailedUse = [
 
                       <SelectFacet
                           title='Building Architectual Type'
-                          options={this.state.archType}
+                          options={this.state.archTypeOptions}
                           customStyles={buildingTypeStyle}
                       />
 
@@ -279,15 +286,26 @@ const detailedUse = [
     MoreFilters.propTypes = {
         modalIsOpen: PropTypes.bool.isRequired,
         recordCount: PropTypes.string.isRequired,
+        // minSaleDate: PropTypes.string.isRequired,
+        // maxSaleDate: PropTypes.string.isRequired,
+        // minSaleAmount: PropTypes.string.isRequired,
+        // maxSaleAmount: PropTypes.string.isRequired,
+        // archTypeOptions: PropTypes.object.isRequired,
+        // neighborhoodOptions: PropTypes.object.isRequired,
         actions: PropTypes.object.isRequired
     }
 
 
     const mapStateToProps = (state, ownProps)=>{
         return {
-            //Use Redux to manage modal display for future use
             modalIsOpen: state.modalDisplay.modalIsOpen,
-            recordCount: state.recordCount.count
+            // minSaleDate: state.facets.minSaleDate,
+            // maxSaleDate: state.facets.maxSaleDate,
+            minSaleAmount: state.facets.minSaleAmount,
+            maxSaleAmount: state.facets.maxSaleAmount,
+            // archTypeOptions: state.facets.archTypeOptions,
+            // neighborhoodOptions: state.facets.neighborhoodOptions,
+            recordCount: state.facets.recordCount
         }
     }
 

@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
 import modalDisplay from './displayReducer';
-import recordCount from './facetsReducer';
+import facets from './facetsReducer';
 
 const rootReducer = combineReducers({
     modalDisplay,
-    recordCount
+    facets
 });
 
 export default rootReducer;

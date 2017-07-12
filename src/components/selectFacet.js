@@ -51,7 +51,7 @@ const inputStyle = {
               <label style={selectFacetLabelStyle}>{this.props.title}</label>
               <select style={{...inputStyle, ...this.props.customStyles.select}} value={this.state.selected} onChange={this.handleChange} multiple>
                   {this.props.options.map(item =>{
-                          return <option key={item.value} value={item.value} >{item.label}</option>
+                      return <option key={item.value} value={item.value} >{item.label}</option>
                   })}
               </select>
           </div>
