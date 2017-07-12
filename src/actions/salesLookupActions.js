@@ -56,11 +56,16 @@ function createOptionsList(options){
 }
 
 export function updateMajorArea(majorAreaList){
-    if (typeof majorAreaList === 'string') {
-        return {type: actions.UPDATE_MAJOR_AREA, majorAreas: [majorAreaList]};
-    }
     return {type: actions.UPDATE_MAJOR_AREA, majorAreas: createOptionsList(majorAreaList)};
 }
+// UPDATE_PROPERTY_USE
+//
+// export function updateMajorArea(majorAreaList){
+//     if (typeof majorAreaList === 'string') {
+//         return {type: actions.UPDATE_MAJOR_AREA, majorAreas: [majorAreaList]};
+//     }
+//     return {type: actions.UPDATE_MAJOR_AREA, majorAreas: createOptionsList(majorAreaList)};
+// }
 
 export function updateRecordCountButtonSuccess(recordCount){
     return {type: actions.UPDATE_COUNT_SUCCESS, recordCount};

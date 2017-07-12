@@ -36,7 +36,6 @@ const inputStyle = {
 
 
     render() {
-        // const defaultOption = this.props.defaultOption;
       return (
           <div style={{...selectFacetStyle, ...this.props.customStyles.component}}>
               <label style={selectFacetLabelStyle}>{this.props.title}</label>

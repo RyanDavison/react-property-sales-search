@@ -301,16 +301,18 @@ const customStyles = {
                           title='Property Use'
                           options={detailedUse}
                           defaultOption='Any'
+                          selected={this.props.majorAreas}
                           customStyles={detailedUseStyle}
-                          />
+                          onChange={this.props.actions.updateMajorArea}
+                      /> */}
 
-                          <SelectFacet
+                      {/* <SelectFacet
                           title='Economic Area'
                           options={economicArea}
                           defaultOption='Any'
-                          />
+                      /> */}
 
-                          <SelectFacet
+                      {/* <SelectFacet
                           title='Neighborhood/Subdivision'
                           options={this.state.neighborhoodOptions}
                           defaultOption='Any'
