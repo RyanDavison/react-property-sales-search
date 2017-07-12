@@ -21,6 +21,14 @@ export function updateMaxSaleAmount(maxSaleAmount){
     return {type: actions.UPDATE_MAX_SALE_AMOUNT, maxSaleAmount};
 }
 
+export function updateMinAcreage(minAcreage){
+    return {type: actions.UPDATE_MIN_ACREAGE, minAcreage};
+}
+
+export function updateMaxAcreage(maxAcreage){
+    return {type: actions.UPDATE_MAX_ACREAGE, maxAcreage};
+}
+
 export function updateRecordCountButtonSuccess(recordCount){
     return {type: actions.UPDATE_COUNT_SUCCESS, recordCount};
 }

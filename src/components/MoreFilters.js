@@ -215,8 +215,10 @@ const detailedUse = [
                           title='Acreage'
                           minLabel='Min Acreage'
                           maxLabel='Max Acreage'
-                          minValue='0'
-                          maxValue='500'
+                          minValue={this.props.minAcreage}
+                          maxValue={this.props.maxAcreage}
+                          onMinChange={this.props.actions.updateMinAcreage}
+                          onMaxChange={this.props.actions.updateMaxAcreage}
                           step='0.1'
                       />
 
@@ -286,12 +288,6 @@ const detailedUse = [
     MoreFilters.propTypes = {
         modalIsOpen: PropTypes.bool.isRequired,
         recordCount: PropTypes.string.isRequired,
-        // minSaleDate: PropTypes.string.isRequired,
-        // maxSaleDate: PropTypes.string.isRequired,
-        // minSaleAmount: PropTypes.string.isRequired,
-        // maxSaleAmount: PropTypes.string.isRequired,
-        // archTypeOptions: PropTypes.object.isRequired,
-        // neighborhoodOptions: PropTypes.object.isRequired,
         actions: PropTypes.object.isRequired
     }
 
@@ -303,9 +299,11 @@ const detailedUse = [
             // maxSaleDate: state.facets.maxSaleDate,
             minSaleAmount: state.facets.minSaleAmount,
             maxSaleAmount: state.facets.maxSaleAmount,
+            minAcreage: state.facets.minAcreage,
+            maxAcreage: state.facets.maxAcreage,
             // archTypeOptions: state.facets.archTypeOptions,
             // neighborhoodOptions: state.facets.neighborhoodOptions,
-            recordCount: state.facets.recordCount
+            recordCount: state.records.recordCount
         }
     }
 
