@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import Qualification from './Qualification';
+// import Qualification from './Qualification';
 import RangeFacet from './RangeFacet';
 import SelectFacet from './SelectFacet';
 import BufferFacet from './BufferFacet/BufferFacet';
+import Dropdown from './Dropdown';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as salesLookupActions from '../actions/salesLookupActions';
@@ -146,6 +147,45 @@ const detailedUse = [
     {value: "7000", label: "Oil & Gas"}
 ]
 
+const qualificationContent = [
+     {type: 'item', value: 'Qualified', label: 'Qualified' },
+     {type: 'item', value: 'Unqualified', label: 'Unqualified' },
+     {type: 'item', value: 'Qualified and Unqualified', label: 'Qualified and Unqualified' },
+]
+
+const qualificationStyle = {
+    display: 'block',
+    border: '1px solid #ccc',
+    borderRadius: '4px',
+    padding: '0.5em',
+    marginBottom: '1em',
+    top: '0',
+    height: '2.8em',
+    width: '75%',
+    boxShadow: '1px 1px 5px #888888'
+}
+const qualificationLabelStyle = {
+    display: 'block',
+    fontSize: '0.8em',
+    fontWeight: 'bold',
+    color: '#C4C4C4',
+    margin: '0 0 0.4em 0',
+    textAlign:'left',
+    borderBottom: '1px solid #ccc'
+}
+
+const customStyles = {
+    dropNav: {
+        "width":"15.5em",
+        "marginLeft":"-0.7em",
+        "marginTop":"0.9em"
+    },
+    ulContainer: {
+        "width":"14.5em",
+        "paddingLeft":"0 !important"
+    }
+}
+
     class MoreFilters extends Component {
         constructor(props){
             super(props);
@@ -198,7 +238,19 @@ const detailedUse = [
 
 
                   <div style={{...column, ...leftColumn}} className="leftColumn">
-                      <Qualification />
+
+                      <div style={qualificationStyle} className="qualification">
+                          <label style={qualificationLabelStyle}>Sales Qualification Type</label>
+                          <Dropdown
+                              baseclass='qualification'
+                              customStyles={customStyles}
+                              option={qualificationContent}
+                              placeholder='Qualified and Unqualified'
+                              value={this.props.qualificationType}
+                              handleChange={this.props.actions.updateSalesQualification}
+                          />
+                      </div>
+                      {/* <Qualification /> */}
 
                       <RangeFacet
                           title='Sale Amount'
@@ -299,6 +351,7 @@ const detailedUse = [
             modalIsOpen: state.modalDisplay.modalIsOpen,
             // minSaleDate: state.facets.minSaleDate,
             // maxSaleDate: state.facets.maxSaleDate,
+            qualificationType: state.facets.qualificationType,
             minSaleAmount: state.facets.minSaleAmount,
             maxSaleAmount: state.facets.maxSaleAmount,
             minAcreage: state.facets.minAcreage,

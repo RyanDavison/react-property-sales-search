@@ -13,6 +13,10 @@ export function toggleModal(modalIsOpen){
 //     return {type: actions.UPDATE_MAX_SALE_DATE, date};
 // }
 
+export function updateSalesQualification(qualificationType){
+    return {type: actions.UPDATE_SALES_QUALIFICATION_TYPE, qualificationType};
+}
+
 export function updateMinSaleAmount(minSaleAmount){
     return {type: actions.UPDATE_MIN_SALE_AMOUNT, minSaleAmount};
 }
@@ -40,6 +44,7 @@ export function updateMaxSquareFeet(maxSquareFeet){
 export function updateRecordCountButtonSuccess(recordCount){
     return {type: actions.UPDATE_COUNT_SUCCESS, recordCount};
 }
+
 
 export function updateRecordCountButton(facetData){
     return function(dispatch){

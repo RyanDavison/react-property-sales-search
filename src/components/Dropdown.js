@@ -6,7 +6,7 @@ import '../styles/Dropdown.css';
       constructor(props){
           super(props);
           this.state = {
-              value: props.value,
+            //   value: props.value,
               display: false,
               listItems: props.option,
               baseClass: props.baseclass
@@ -23,7 +23,8 @@ componentWillUnmount = () =>{
 
 selectNode = (node) =>{
     if (node.target.className !== 'heading') {
-        this.setState({value: node.target.innerHTML});
+        this.props.handleChange(node.target.innerHTML)
+        // this.setState({value: node.target.innerHTML});
     }
 }
 
@@ -46,7 +47,7 @@ showHide = (event) =>{
         }
       return (
           <div style={{...this.props.customStyles.ulContainer}}
-              className={`dropdown ${this.state.baseClass}`}>{this.state.value}
+              className={`dropdown ${this.state.baseClass}`}>{this.props.value}
               <span className={`dropdown ${this.state.baseClass}`}>&#9660;</span>
               <ul style={{...ulDisplay, ...this.props.customStyles.dropNav}}
                   className='drop-nav display' onClick={this.selectNode}>
