@@ -5,13 +5,13 @@ export function toggleModal(modalIsOpen){
     return {type: actions.TOGGLE_MODAL, modalIsOpen};
 }
 
-// export function updateMinSaleDate(date){
-//     return {type: actions.UPDATE_MIN_SALE_DATE, date};
-// }
-//
-// export function updateMaxSaleDate(date){
-//     return {type: actions.UPDATE_MAX_SALE_DATE, date};
-// }
+export function updateMinSaleDate(minSaleDate){
+    return {type: actions.UPDATE_MIN_SALE_DATE, minSaleDate};
+}
+
+export function updateMaxSaleDate(maxSaleDate){
+    return {type: actions.UPDATE_MAX_SALE_DATE, maxSaleDate};
+}
 
 export function updateSalesQualification(qualificationType){
     return {type: actions.UPDATE_SALES_QUALIFICATION_TYPE, qualificationType};

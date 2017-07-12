@@ -3,6 +3,9 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import PropTypes from 'prop-types';
 import Moment from 'moment';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as salesLookupActions from '../actions/salesLookupActions';
 
 
 const labelStyle = {
@@ -21,22 +24,19 @@ const datePickerStyle = {
   class Datepickers extends Component {
       constructor(props){
           super(props);
-          this.state = {
-              startDate: Moment().subtract(props.time, props.units),
-              endDate: Moment()
-          };
+      }
+
+      componentWillMount(){
+        this.props.actions.updateMinSaleDate(Moment().subtract(this.props.time, this.props.units));
+        this.props.actions.updateMaxSaleDate(Moment());
       }
 
       handleChangeStart = date => {
-        this.setState({
-          startDate: date
-        });
+          this.props.actions.updateMinSaleDate(date);
         }
 
         handleChangeEnd = date => {
-          this.setState({
-            endDate: date
-          });
+            this.props.actions.updateMaxSaleDate(date);
           }
 
 
@@ -48,10 +48,10 @@ const datePickerStyle = {
                   <label style={labelStyle} className='dateRange' htmlFor='minimumSaleDate'>Min Sales Date</label>
                   <DatePicker
                       customInput={<input className='facet' placeholder='Choose Date' id='minimumSaleDate' style={{"width":"95%"}} />}
-                      selected={this.state.startDate}
+                      selected={this.props.minSaleDate}
                       selectsStart
-                      startDate={this.state.startDate}
-                      endDate={this.state.endDate}
+                      startDate={this.props.minSaleDate}
+                      endDate={this.props.maxSaleDate}
                       onChange={this.handleChangeStart}
                   />
               </div>
@@ -60,10 +60,10 @@ const datePickerStyle = {
                   <label style={labelStyle} className='dateRange' htmlFor='maximumSaleDate'>Max Sales Date</label>
                   <DatePicker
                       customInput={<input className='facet' placeholder='Choose Date' id='maximumSaleDate' style={{"width":"95%"}} />}
-                      selected={this.state.endDate}
+                      selected={this.props.maxSaleDate}
                       selectsEnd
-                      startDate={this.state.startDate}
-                      endDate={this.state.endDate}
+                      startDate={this.props.minSaleDate}
+                      endDate={this.props.maxSaleDate}
                       onChange={this.handleChangeEnd}
                   />
               </div>
@@ -73,10 +73,25 @@ const datePickerStyle = {
     }
   }
 
-  Datepickers.propTypes = {
-      time: PropTypes.number.isRequired,
-      units: PropTypes.string.isRequired,
-  }
+Datepickers.propTypes = {
+    actions: PropTypes.object.isRequired
+}
 
 
-export default Datepickers;
+const mapStateToProps = (state, ownProps)=>{
+    return {
+        minSaleDate: state.facets.minSaleDate,
+        maxSaleDate: state.facets.maxSaleDate,
+        time: ownProps.time,
+        units: ownProps.units
+    }
+}
+
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        actions: bindActionCreators(salesLookupActions, dispatch)
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Datepickers);
