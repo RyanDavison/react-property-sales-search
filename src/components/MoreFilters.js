@@ -297,27 +297,29 @@ const customStyles = {
                           onChange={this.props.actions.updateMajorArea}
                       />
 
-                      {/* <SelectFacet
+                      <SelectFacet
                           title='Property Use'
                           options={detailedUse}
                           defaultOption='Any'
-                          selected={this.props.majorAreas}
+                          selected={this.props.propertyUses}
                           customStyles={detailedUseStyle}
-                          onChange={this.props.actions.updateMajorArea}
-                      /> */}
+                          onChange={this.props.actions.updatePropertyUse}
+                      />
 
-                      {/* <SelectFacet
+                      <SelectFacet
                           title='Economic Area'
                           options={economicArea}
                           defaultOption='Any'
-                      /> */}
+                          selected={this.props.economicAreas}
+                          onChange={this.props.actions.updateEconomicArea}
+                      />
 
-                      {/* <SelectFacet
+                      <SelectFacet
                           title='Neighborhood/Subdivision'
                           options={this.state.neighborhoodOptions}
                           defaultOption='Any'
                           customStyles={neighborhoodStyle}
-                      /> */}
+                      />
 
 
                   </div>
@@ -368,6 +370,9 @@ const customStyles = {
             minSquareFeet: state.facets.minSquareFeet,
             maxSquareFeet: state.facets.maxSquareFeet,
             majorAreas: state.facets.majorAreas,
+            propertyUses: state.facets.propertyUses,
+            economicAreas: state.facets.economicAreas,
+            neighborhoods: state.facets.neighborhoods,
             // archTypeOptions: state.facets.archTypeOptions,
             // neighborhoodOptions: state.facets.neighborhoodOptions,
             recordCount: state.records.recordCount

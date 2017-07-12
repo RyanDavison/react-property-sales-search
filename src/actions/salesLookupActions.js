@@ -45,32 +45,25 @@ export function updateMaxSquareFeet(maxSquareFeet){
     return {type: actions.UPDATE_MAX_SQUARE_FEET, maxSquareFeet};
 }
 
-function createOptionsList(options){
-    let optionsList = [];
-    [].forEach.call(options, (option)=>{
-        if(option.selected){
-            optionsList.push(option.value)
-        }
-    });
-    return optionsList
-}
-
 export function updateMajorArea(majorAreaList){
     return {type: actions.UPDATE_MAJOR_AREA, majorAreas: createOptionsList(majorAreaList)};
 }
-// UPDATE_PROPERTY_USE
-//
-// export function updateMajorArea(majorAreaList){
-//     if (typeof majorAreaList === 'string') {
-//         return {type: actions.UPDATE_MAJOR_AREA, majorAreas: [majorAreaList]};
-//     }
-//     return {type: actions.UPDATE_MAJOR_AREA, majorAreas: createOptionsList(majorAreaList)};
-// }
+
+export function updatePropertyUse(propertyUseList){
+    return {type: actions.UPDATE_PROPERTY_USE, propertyUses: createOptionsList(propertyUseList)};
+}
+
+export function updateEconomicArea(economicAreaList){
+    return {type: actions.UPDATE_ECONOMIC_AREA, propertyUses: createOptionsList(economicAreaList)};
+}
+
+export function updateNeighborhood(neighborhoodList){
+    return {type: actions.UPDATE_NEIGHBORHOOD, propertyUses: createOptionsList(neighborhoodList)};
+}
 
 export function updateRecordCountButtonSuccess(recordCount){
     return {type: actions.UPDATE_COUNT_SUCCESS, recordCount};
 }
-
 
 export function updateRecordCountButton(facetData){
     return function(dispatch){
@@ -82,6 +75,17 @@ export function updateRecordCountButton(facetData){
             throw(error);
         })
     }
+}
+
+//Helper functions
+function createOptionsList(options){
+    let optionsList = [];
+    [].forEach.call(options, (option)=>{
+        if(option.selected){
+            optionsList.push(option.value)
+        }
+    });
+    return optionsList
 }
 
 // export function fetchArchtypeSuccess(archTypeOptions){
@@ -104,7 +108,6 @@ export function updateRecordCountButton(facetData){
 // }
 //
 // function shouldFetchArchType(state) {
-//     console.log('mitsy', state.archTypeOptions)
 //   const opts = state.archTypeOptions;
 //   if (!opts) {
 //     return true;

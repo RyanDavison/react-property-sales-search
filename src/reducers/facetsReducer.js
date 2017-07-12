@@ -10,10 +10,10 @@ const initState = {
     minSquareFeet: '0',
     maxSquareFeet: '100000',
     majorAreas: ['Any'],
-    propertyUse: ['Any'],
-    economicArea: ['Any'],
-    neighborhood: ['Any'],
-    architecturalType: ['Any']
+    propertyUses: ['Any'],
+    economicAreas: ['Any'],
+    neighborhoods: ['Any'],
+    architecturalTypes: ['Any']
 }
 
 export default function facetsReducer(state = initState, action) {
@@ -40,6 +40,12 @@ export default function facetsReducer(state = initState, action) {
       return Object.assign({}, state, {maxSquareFeet: action.maxSquareFeet});
       case actions.UPDATE_MAJOR_AREA:
         return Object.assign({}, state, {majorAreas: action.majorAreas});
+    case actions.UPDATE_PROPERTY_USE:
+      return Object.assign({}, state, {propertyUses: action.propertyUses});
+    case actions.UPDATE_ECONOMIC_AREA:
+        return Object.assign({}, state, {economicAreas: action.economicAreas});
+    case actions.UPDATE_NEIGHBORHOOD:
+      return Object.assign({}, state, {neighborhoods: action.neighborhoods});
     default:
       return state;
   }
