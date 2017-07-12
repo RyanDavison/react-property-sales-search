@@ -17,6 +17,10 @@ export function updateSalesQualification(qualificationType){
     return {type: actions.UPDATE_SALES_QUALIFICATION_TYPE, qualificationType};
 }
 
+export function updatePropertyType(propertyType){
+    return {type: actions.UPDATE_PROPERTY_TYPE, propertyType};
+}
+
 export function updateMinSaleAmount(minSaleAmount){
     return {type: actions.UPDATE_MIN_SALE_AMOUNT, minSaleAmount};
 }

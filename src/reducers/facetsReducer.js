@@ -1,6 +1,7 @@
 import * as actions from '../actions/actionTypes';
 
 const initState = {
+    propertyType: 'Select Property Type',
     qualificationType: 'Qualified and Unqualified',
     minSaleAmount: '0',
     maxSaleAmount: '10000000',
@@ -16,8 +17,11 @@ export default function facetsReducer(state = initState, action) {
     //   return {minSaleDate: action.minSaleDate};
     // case actions.UPDATE_MAX_SALE_DATE:
     //   return {maxSaleDate: action.maxSaleDate};
+
     case actions.UPDATE_SALES_QUALIFICATION_TYPE:
       return Object.assign({}, state, {qualificationType: action.qualificationType});
+      case actions.UPDATE_PROPERTY_TYPE:
+        return Object.assign({}, state, {propertyType: action.propertyType});
     case actions.UPDATE_MIN_SALE_AMOUNT:
       return Object.assign({}, state, {minSaleAmount: action.minSaleAmount});
     case actions.UPDATE_MAX_SALE_AMOUNT:

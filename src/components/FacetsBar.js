@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Datepickers from './Datepickers';
 import Dropdown from './Dropdown';
 import MoreFilters from './MoreFilters';
+import PropTypes from 'prop-types';
+import * as salesLookupActions from '../actions/salesLookupActions';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 
 const facetsbar = {
@@ -42,15 +46,40 @@ const dropdownContent = [
      {type: 'item', value: 'Residential Vacant', label: 'Residential Vacant' }
 ]
 
-const FacetsBar = () =>
-  (
+class FacetsBar extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
       <div style={facetsbar} className="facets-bar">
-          <Datepickers time={4} units={'months'} />
-          <span style={dividerStyle}></span>
-          <Dropdown baseclass='more-filters' option={dropdownContent} placeholder='Select Property Type' value={'Select Property Type'}/>
-          <span style={dividerStyle}></span>
-          <MoreFilters message={'More Filters'} />
-      </div>
-  );
+        <Datepickers time={4} units={'months'}/>
+        <span style={dividerStyle}></span>
+        <Dropdown baseclass='more-filters' option={dropdownContent} placeholder='Select Property Type' value={this.props.propertyType} handleChange={this.props.actions.updatePropertyType}/>
 
-  export default FacetsBar;
+        <span style={dividerStyle}></span>
+        <MoreFilters message={'More Filters'}/>
+      </div>
+    );
+  }
+}
+
+  FacetsBar.propTypes = {
+      actions: PropTypes.object.isRequired
+  }
+
+
+  const mapStateToProps = (state, ownProps)=>{
+      return {
+          propertyType: state.facets.propertyType,
+      }
+  }
+
+  const mapDispatchToProps = (dispatch)=>{
+      return {
+          actions: bindActionCreators(salesLookupActions, dispatch)
+      }
+  }
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(FacetsBar);
