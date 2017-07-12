@@ -29,6 +29,14 @@ export function updateMaxAcreage(maxAcreage){
     return {type: actions.UPDATE_MAX_ACREAGE, maxAcreage};
 }
 
+export function updateMinSquareFeet(minSquareFeet){
+    return {type: actions.UPDATE_MIN_SQUARE_FEET, minSquareFeet};
+}
+
+export function updateMaxSquareFeet(maxSquareFeet){
+    return {type: actions.UPDATE_MAX_SQUARE_FEET, maxSquareFeet};
+}
+
 export function updateRecordCountButtonSuccess(recordCount){
     return {type: actions.UPDATE_COUNT_SUCCESS, recordCount};
 }

@@ -226,8 +226,10 @@ const detailedUse = [
                           title='Total heated Square Feet'
                           minLabel='Min Square Feet'
                           maxLabel='Max Square Feet'
-                          minValue='0'
-                          maxValue='100000'
+                          minValue={this.props.minSquareFeet}
+                          maxValue={this.props.maxSquareFeet}
+                          onMinChange={this.props.actions.updateMinSquareFeet}
+                          onMaxChange={this.props.actions.updateMaxSquareFeet}
                           step='100'
                       />
                   </div>
@@ -301,6 +303,8 @@ const detailedUse = [
             maxSaleAmount: state.facets.maxSaleAmount,
             minAcreage: state.facets.minAcreage,
             maxAcreage: state.facets.maxAcreage,
+            minSquareFeet: state.facets.minSquareFeet,
+            maxSquareFeet: state.facets.maxSquareFeet,
             // archTypeOptions: state.facets.archTypeOptions,
             // neighborhoodOptions: state.facets.neighborhoodOptions,
             recordCount: state.records.recordCount

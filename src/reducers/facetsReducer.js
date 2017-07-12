@@ -5,6 +5,8 @@ const initState = {
     maxSaleAmount: '10000000',
     minAcreage: '0',
     maxAcreage: '500',
+    minSquareFeet: '0',
+    maxSquareFeet: '100000',
 }
 
 export default function facetsReducer(state = initState, action) {
@@ -21,6 +23,10 @@ export default function facetsReducer(state = initState, action) {
         return Object.assign({}, state, {minAcreage: action.minAcreage});
       case actions.UPDATE_MAX_ACREAGE:
         return Object.assign({}, state, {maxAcreage: action.maxAcreage});
+        case actions.UPDATE_MIN_SQUARE_FEET:
+          return Object.assign({}, state, {minSquareFeet: action.minSquareFeet});
+        case actions.UPDATE_MAX_SQUARE_FEET:
+          return Object.assign({}, state, {maxSquareFeet: action.maxSquareFeet});
     default:
       return state;
   }
