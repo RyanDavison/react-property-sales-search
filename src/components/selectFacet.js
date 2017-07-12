@@ -36,18 +36,13 @@ const inputStyle = {
 
 
     render() {
-        const defaultOption = this.props.defaultOption;
+        // const defaultOption = this.props.defaultOption;
       return (
           <div style={{...selectFacetStyle, ...this.props.customStyles.component}}>
               <label style={selectFacetLabelStyle}>{this.props.title}</label>
-              <select style={{...inputStyle, ...this.props.customStyles.select}} value={this.props.majorAreas} onChange={this.handleChange} multiple>
+              <select style={{...inputStyle, ...this.props.customStyles.select}} value={this.props.selected} onChange={this.handleChange} multiple>
                   {this.props.options.map(item =>{
-                      if(item.value === defaultOption){
-                          return <option key={item.value} value={item.value} selected>{item.label}</option>
-                      }else{
                       return <option key={item.value} value={item.value} >{item.label}</option>
-                  }
-
                   })}
               </select>
           </div>
@@ -59,7 +54,7 @@ const inputStyle = {
       title: PropTypes.string.isRequired,
       options: PropTypes.array.isRequired,
       onChange: PropTypes.func.isRequired,
-      majorAreas: PropTypes.object.isRequired
+      selected: PropTypes.object.isRequired
   }
 
   SelectFacet.defaultProps = {
