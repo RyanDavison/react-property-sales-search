@@ -36,10 +36,6 @@ const bufferFacetStyle = {
       clearList = () =>{
           this.props.updateAddress("");
           this.props.updateDistance(0)
-          this.setState({
-              addressList:[],
-              visible: {visibility: 'hidden'},
-          });
           return
       }
 
@@ -49,37 +45,25 @@ const bufferFacetStyle = {
               <RangeFacetLabel
                   value="Buffer"
               />
-              <div>
-                  <Autocomplete
-                      title="Enter Address or Parcel No."
-                      url='http://localhost:3000/query/retrieve/address'
-                      completedItem={this.props.address}
-                      updateStore={this.props.updateAddress}
-                  />
-                  <ClearButton clearFunction={this.clearList} />
-                  <LabeledInput
-                      labelBefore="Buffer above entry"
-                      labelAfter="miles"
-                      valueFromState={this.props.distance}
-                      updateState={this.distanceChanged}
-                      type='number'
-                      min='0'
-                      step='.25'
-                      name='buffer'
-                      className='facet milesBuffer'
-                  />
-
-                  {/* <div style={{"fontSize":"0.7em"}} id='bufferdiv'>
-                      <label style={{"float":"left", "fontSize":"0.9em", "marginTop":"0.5em"}} for='buffer'>Buffer above entry</label>
-
-                      <input style={{"fontSize":"0.9em", "width":"4em", "float":"left", "marginLeft":"1em", "marginTop":"0.3em"}}
-                          value={this.props.distance} type='number' min='0' step='.25' name='buffer' className='facet milesBuffer'
-                          onChange={this.distanceChanged}/>
-
-                      <span style={{"marginTop":"0.5em", "float":"left", "marginLeft":"1em", "marginTop":"0.3em"}}>miles</span>
-                  </div> */}
-              </div>
-                  </div>
+              <Autocomplete
+                  title="Enter Address or Parcel No."
+                  url='http://localhost:3000/query/retrieve/address'
+                  completedItem={this.props.address}
+                  updateStore={this.props.updateAddress}
+              />
+              <ClearButton clearFunction={this.clearList} />
+              <LabeledInput
+                  labelBefore="Buffer above entry"
+                  labelAfter="miles"
+                  valueFromState={this.props.distance}
+                  updateState={this.distanceChanged}
+                  type='number'
+                  min='0'
+                  step='.25'
+                  name='buffer'
+                  className='facet milesBuffer'
+              />
+          </div>
       );
     }
   }
