@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import RangeFacetLabel from '../RangeFacetLabel';
 import Autocomplete from '../Autocomplete';
+import ClearButton from '../ClearButton';
 import './style/bufferFacet.css';
 
 const bufferFacetStyle = {
@@ -54,8 +55,9 @@ const bufferFacetStyle = {
                       completedItem={this.props.address}
                       updateStore={this.props.updateAddress}
                   />
+                  <ClearButton clearFunction={this.clearList} />
 
-                  <button onClick={this.clearList} style={{"float":"left", "marginLeft":"1em", "marginTop":"-0.1em"}} title='Clear the list'>Clear</button>
+                  {/* <button onClick={this.clearList} style={{"float":"left", "marginLeft":"1em", "marginTop":"-0.1em"}} title='Clear the list'>Clear</button> */}
 
                   <div style={{"fontSize":"0.7em"}} id='bufferdiv'>
                       <label style={{"float":"left", "fontSize":"0.9em", "marginTop":"0.5em"}} for='buffer'>Buffer above entry</label>
