@@ -13,7 +13,9 @@ const initState = {
     propertyUses: ['Any'],
     economicAreas: ['Any'],
     neighborhoods: ['Any'],
-    architecturalTypes: ['Any']
+    architecturalTypes: ['Any'],
+
+    bufferDistance: 0
 }
 
 export default function facetsReducer(state = initState, action) {
@@ -48,6 +50,8 @@ export default function facetsReducer(state = initState, action) {
       return Object.assign({}, state, {neighborhoods: action.neighborhoods});
     case actions.UPDATE_ARCHITECTURAL_TYPE:
         return Object.assign({}, state, {architecturalTypes: action.architecturalTypes});
+    case actions.UPDATE_BUFFER_DISTANCE:
+        return Object.assign({}, state, {bufferDistance: action.bufferDistance});
     default:
       return state;
   }

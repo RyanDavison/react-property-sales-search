@@ -81,6 +81,9 @@ export function updateRecordCountButton(facetData){
     }
 }
 
+export function updateBufferDistance(bufferDistance){
+    return {type: actions.UPDATE_BUFFER_DISTANCE, bufferDistance};
+}
 
 //Helper functions
 function createOptionsList(options){

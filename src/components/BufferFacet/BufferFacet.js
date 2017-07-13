@@ -49,7 +49,7 @@ const ulStyle = {
               address: "",
               addressList: [],
               visible: {visibility: 'hidden'},
-              distance: 0
+            //   distance: 0
           }
       }
 
@@ -97,7 +97,7 @@ const ulStyle = {
               address: "",
               addressList:[],
               visible: {visibility: 'hidden'},
-              distance: 0
+            //   distance: 0
           });
           return
       }
@@ -126,8 +126,8 @@ const ulStyle = {
                       <label style={{"float":"left", "fontSize":"0.9em", "marginTop":"0.5em"}} for='buffer'>Buffer above entry</label>
 
                       <input style={{"fontSize":"0.9em", "width":"4em", "float":"left", "marginLeft":"1em", "marginTop":"0.3em"}}
-                          value={this.state.distance} type='number' min='0' step='.25' name='buffer' className='facet milesBuffer'
-                          onChange={i=>{this.setState({distance:i.target.value});return}}/>
+                          value={this.props.distance} type='number' min='0' step='.25' name='buffer' className='facet milesBuffer'
+                          onChange={i=>{this.props.updateDistance(i.target.value)}}/>
 
                       <span style={{"marginTop":"0.5em", "float":"left", "marginLeft":"1em", "marginTop":"0.3em"}}>miles</span>
                   </div>

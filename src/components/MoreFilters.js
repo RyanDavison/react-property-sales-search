@@ -339,7 +339,10 @@ const customStyles = {
                           onChange={this.props.actions.updatearchitecturalType}
                       />
 
-                      <BufferFacet />
+                      <BufferFacet
+                          distance={this.props.bufferDistance}
+                          updateDistance={this.props.actions.updateBufferDistance}
+                      />
 
 
                       <div style={buttonGroupStyle} className='buttonGroup'>
@@ -378,6 +381,7 @@ const customStyles = {
             economicAreas: state.facets.economicAreas,
             neighborhoods: state.facets.neighborhoods,
             architecturalTypes: state.facets.architecturalTypes,
+            bufferDistance: state.facets.bufferDistance,
             // archTypeOptions: state.facets.archTypeOptions,
             // neighborhoodOptions: state.facets.neighborhoodOptions,
             recordCount: state.records.recordCount
