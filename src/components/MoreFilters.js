@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-// import Qualification from './Qualification';
+import RangeFacetLabel from './RangeFacetLabel';
 import RangeFacet from './RangeFacet';
 import SelectFacet from './SelectFacet';
 import BufferFacet from './BufferFacet/BufferFacet';
@@ -164,15 +164,6 @@ const qualificationStyle = {
     width: '75%',
     boxShadow: '1px 1px 5px #888888'
 }
-const qualificationLabelStyle = {
-    display: 'block',
-    fontSize: '0.8em',
-    fontWeight: 'bold',
-    color: '#C4C4C4',
-    margin: '0 0 0.4em 0',
-    textAlign:'left',
-    borderBottom: '1px solid #ccc'
-}
 
 const customStyles = {
     dropNav: {
@@ -240,7 +231,7 @@ const customStyles = {
                   <div style={{...column, ...leftColumn}} className="leftColumn">
 
                       <div style={qualificationStyle} className="qualification">
-                          <label style={qualificationLabelStyle}>Sales Qualification Type</label>
+                          <RangeFacetLabel value="Sales Qualification Type" />
                           <Dropdown
                               baseclass='qualification'
                               customStyles={customStyles}
