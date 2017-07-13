@@ -72,11 +72,14 @@ const ulStyle = {
           return
       }
 
-      distanceChanged = () =>{
+      distanceChanged = i =>{
           //if the address box is empty, show error popup to customer
-          //if(this.props.bufferAddress === ""){
-          //    alert(`Please enter a parcel number or address above before trying to buffer.`);
-          //}
+          if(this.props.address === ""){
+             alert(`Please enter a parcel number or address above before trying to buffer.`);
+             this.clearList();
+         }else{
+             this.props.updateDistance(i.target.value)
+         }
       }
 
       clearList = () =>{
@@ -114,7 +117,7 @@ const ulStyle = {
 
                       <input style={{"fontSize":"0.9em", "width":"4em", "float":"left", "marginLeft":"1em", "marginTop":"0.3em"}}
                           value={this.props.distance} type='number' min='0' step='.25' name='buffer' className='facet milesBuffer'
-                          onChange={i=>{this.props.updateDistance(i.target.value)}}/>
+                          onChange={this.distanceChanged}/>
 
                       <span style={{"marginTop":"0.5em", "float":"left", "marginLeft":"1em", "marginTop":"0.3em"}}>miles</span>
                   </div>
