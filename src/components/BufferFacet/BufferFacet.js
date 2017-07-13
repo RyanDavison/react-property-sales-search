@@ -52,6 +52,8 @@ const ulStyle = {
       }
 
       changed = key =>{
+          //On ul blur without selection clearList(). Only allow the list to
+          //stay populated if user selects from ul list/
           this.props.updateAddress(key.target.value);
           if(key.target.value.length > 3){
               axios.post('http://localhost:3000/query/retrieve/address',
@@ -76,7 +78,6 @@ const ulStyle = {
           //if the address box is empty, show error popup to customer
           if(this.props.address === ""){
              alert(`Please enter a parcel number or address above before trying to buffer.`);
-             this.clearList();
          }else{
              this.props.updateDistance(i.target.value)
          }
