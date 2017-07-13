@@ -46,7 +46,7 @@ const ulStyle = {
       constructor(props){
           super(props)
           this.state = {
-              address: "",
+            //   address: "",
               addressList: [],
               visible: {visibility: 'hidden'},
             //   distance: 0
@@ -72,7 +72,8 @@ const ulStyle = {
       }
 
       changed = key =>{
-          this.setState({address:key.target.value});
+        //   this.setState({address:key.target.value});
+          this.props.updateAddress(key.target.value);
           if(key.target.value.length > 3){
               axios.post('http://localhost:3000/query/retrieve/address',
                   {'PARCELNO': key.target.value})
@@ -92,9 +93,18 @@ const ulStyle = {
           return
       }
 
+      distanceChanged = () =>{
+          //if the address box is empty, show error popup to customer
+          //if(this.props.bufferAddress === ""){
+          //    alert(`Please enter a parcel number or address above before trying to buffer.`);
+          //}
+      }
+
       clearList = () =>{
+          this.props.updateAddress("");
+          this.props.updateDistance(0)
           this.setState({
-              address: "",
+            //   address: "",
               addressList:[],
               visible: {visibility: 'hidden'},
             //   distance: 0
@@ -103,8 +113,9 @@ const ulStyle = {
       }
 
       populateAddress = (address) =>{
+          this.props.updateAddress(address.target.innerText);
           this.setState({
-              address: address.target.innerText,
+            //   address: address.target.innerText,
               addressList:[],
               visible: {visibility: 'hidden'}
           });
@@ -118,7 +129,7 @@ const ulStyle = {
               <div>
                   <span style={{"fontSize":"0.7em", "float":"left"}}>Enter Address or Parcel No.</span>
 
-                  <input value={this.state.address} type='text' onChange={this.changed} className='bufferInput' style={{"fontSize":"0.7em", "width":"14em", "float":"left"}} title='Enter Parcel Number or Address' />
+                  <input value={this.props.address} type='text' onChange={this.changed} className='bufferInput' style={{"fontSize":"0.7em", "width":"14em", "float":"left"}} title='Enter Parcel Number or Address' />
                   <div style={this.state.visible}><ul onClick={this.populateAddress} style={ulStyle}>{this.state.addressList}</ul></div>
                   <button onClick={this.clearList} style={{"float":"left", "marginLeft":"1em", "marginTop":"-0.1em"}} title='Clear the list'>Clear</button>
 

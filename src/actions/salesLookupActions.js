@@ -85,6 +85,12 @@ export function updateBufferDistance(bufferDistance){
     return {type: actions.UPDATE_BUFFER_DISTANCE, bufferDistance};
 }
 
+export function updateBufferAddress(bufferAddress){
+    return {type: actions.UPDATE_BUFFER_ADDRESS, bufferAddress};
+}
+
+
+
 //Helper functions
 function createOptionsList(options){
     let optionsList = [];

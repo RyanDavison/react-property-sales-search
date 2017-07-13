@@ -341,7 +341,9 @@ const customStyles = {
 
                       <BufferFacet
                           distance={this.props.bufferDistance}
+                          address={this.props.bufferAddress}
                           updateDistance={this.props.actions.updateBufferDistance}
+                          updateAddress={this.props.actions.updateBufferAddress}
                       />
 
 
@@ -382,6 +384,7 @@ const customStyles = {
             neighborhoods: state.facets.neighborhoods,
             architecturalTypes: state.facets.architecturalTypes,
             bufferDistance: state.facets.bufferDistance,
+            bufferAddress: state.facets.bufferAddress,
             // archTypeOptions: state.facets.archTypeOptions,
             // neighborhoodOptions: state.facets.neighborhoodOptions,
             recordCount: state.records.recordCount
