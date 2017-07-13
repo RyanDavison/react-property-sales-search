@@ -46,33 +46,12 @@ const ulStyle = {
       constructor(props){
           super(props)
           this.state = {
-            //   address: "",
               addressList: [],
               visible: {visibility: 'hidden'},
-            //   distance: 0
           }
       }
 
-      componentDidMount(){
-          Array.from(document.querySelectorAll('.facet')).forEach(el =>{
-              el.addEventListener("click", ()=>{
-                  setTimeout(()=>{
-                    //   console.log(this.state.distance)
-                  })
-              })
-          })
-      }
-
-      componentWillUnmount(){
-          Array.from(document.querySelectorAll('.facet')).forEach(el =>{
-              el.removeEventListener("click", ()=>{
-                //   console.log(this.state.distance)
-              })
-          })
-      }
-
       changed = key =>{
-        //   this.setState({address:key.target.value});
           this.props.updateAddress(key.target.value);
           if(key.target.value.length > 3){
               axios.post('http://localhost:3000/query/retrieve/address',
@@ -104,10 +83,8 @@ const ulStyle = {
           this.props.updateAddress("");
           this.props.updateDistance(0)
           this.setState({
-            //   address: "",
               addressList:[],
               visible: {visibility: 'hidden'},
-            //   distance: 0
           });
           return
       }
@@ -115,7 +92,6 @@ const ulStyle = {
       populateAddress = (address) =>{
           this.props.updateAddress(address.target.innerText);
           this.setState({
-            //   address: address.target.innerText,
               addressList:[],
               visible: {visibility: 'hidden'}
           });
