@@ -319,6 +319,8 @@ const customStyles = {
                           options={this.state.neighborhoodOptions}
                           defaultOption='Any'
                           customStyles={neighborhoodStyle}
+                          selected={this.props.neighborhoods}
+                          onChange={this.props.actions.updateNeighborhood}
                       />
 
 
@@ -328,12 +330,14 @@ const customStyles = {
 
                   <div style={{...column, ...rightColumn}} className="rightColumn">
 
-                      {/* <SelectFacet
+                      <SelectFacet
                           title='Building Architectural Type'
                           options={this.state.archTypeOptions}
                           defaultOption='Any'
                           customStyles={buildingTypeStyle}
-                      /> */}
+                          selected={this.props.architecturalTypes}
+                          onChange={this.props.actions.updatearchitecturalType}
+                      />
 
                       <BufferFacet />
 
@@ -373,6 +377,7 @@ const customStyles = {
             propertyUses: state.facets.propertyUses,
             economicAreas: state.facets.economicAreas,
             neighborhoods: state.facets.neighborhoods,
+            architecturalTypes: state.facets.architecturalTypes,
             // archTypeOptions: state.facets.archTypeOptions,
             // neighborhoodOptions: state.facets.neighborhoodOptions,
             recordCount: state.records.recordCount

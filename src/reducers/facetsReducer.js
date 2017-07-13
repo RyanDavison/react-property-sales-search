@@ -46,6 +46,8 @@ export default function facetsReducer(state = initState, action) {
         return Object.assign({}, state, {economicAreas: action.economicAreas});
     case actions.UPDATE_NEIGHBORHOOD:
       return Object.assign({}, state, {neighborhoods: action.neighborhoods});
+    case actions.UPDATE_ARCHITECTURAL_TYPE:
+        return Object.assign({}, state, {architecturalTypes: action.architecturalTypes});
     default:
       return state;
   }

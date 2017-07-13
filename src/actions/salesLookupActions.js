@@ -61,6 +61,10 @@ export function updateNeighborhood(neighborhoodList){
     return {type: actions.UPDATE_NEIGHBORHOOD, propertyUses: createOptionsList(neighborhoodList)};
 }
 
+export function updateArchitecturalType(architecturalTypeList){
+    return {type: actions.UPDATE_ARCHITECTURAL_TYPE, archetecturalTypes: createOptionsList(architecturalTypeList)};
+}
+
 export function updateRecordCountButtonSuccess(recordCount){
     return {type: actions.UPDATE_COUNT_SUCCESS, recordCount};
 }
@@ -76,6 +80,7 @@ export function updateRecordCountButton(facetData){
         })
     }
 }
+
 
 //Helper functions
 function createOptionsList(options){
