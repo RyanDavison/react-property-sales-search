@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import RangeFacetLabel from '../RangeFacetLabel';
+import Autocomplete from '../Autocomplete';
 import './style/bufferFacet.css';
 
 const bufferFacetStyle = {
@@ -16,54 +17,9 @@ const bufferFacetStyle = {
     boxShadow: '1px 1px 5px #888888'
 }
 
-const inputStyle = {
-    width: "8em"
-}
-
-const ulStyle = {
-       listStyle:"none",
-       textAlign:"left",
-       fontSize:"0.65em",
-       cursor:"pointer",
-       position:"fixed",
-       padding:"0 1em 0.5em 0.5em",
-       marginTop:"3.6em",
-       zIndex:"1",
-       maxHeight:"10em",
-       overflow:"auto",
-       background:"white"
-}
-
   class BufferFacet extends Component {
       constructor(props){
           super(props)
-          this.state = {
-              addressList: [],
-              visible: {visibility: 'hidden'},
-          }
-      }
-
-      changed = key =>{
-          //On ul blur without selection clearList(). Only allow the list to
-          //stay populated if user selects from ul list/
-          this.props.updateAddress(key.target.value);
-          if(key.target.value.length > 3){
-              axios.post('http://localhost:3000/query/retrieve/address',
-                  {'PARCELNO': key.target.value})
-              .then(res =>{
-                  this.setState({
-                      addressList: res.data.map(opt =>{
-                                return <li
-                                    key={opt['PARCELNUMBER']}>
-                                    {opt['Location']} ({opt['PARCELNUMBER']})
-                                </li>
-                            }),
-                            visible: {visibility: 'visible'}
-                  });
-                return
-              });
-          }
-          return
       }
 
       distanceChanged = i =>{
@@ -85,15 +41,6 @@ const ulStyle = {
           return
       }
 
-      populateAddress = (address) =>{
-          this.props.updateAddress(address.target.innerText);
-          this.setState({
-              addressList:[],
-              visible: {visibility: 'hidden'}
-          });
-          return
-      }
-
     render() {
       return (
           <div style={bufferFacetStyle}>
@@ -101,10 +48,13 @@ const ulStyle = {
                   value="Buffer"
               />
               <div>
-                  <span style={{"fontSize":"0.7em", "float":"left"}}>Enter Address or Parcel No.</span>
+                  <Autocomplete
+                      title="Enter Address or Parcel No."
+                      url='http://localhost:3000/query/retrieve/address'
+                      completedItem={this.props.address}
+                      updateStore={this.props.updateAddress}
+                  />
 
-                  <input value={this.props.address} type='text' onChange={this.changed} className='bufferInput' style={{"fontSize":"0.7em", "width":"14em", "float":"left"}} title='Enter Parcel Number or Address' />
-                  <div style={this.state.visible}><ul onClick={this.populateAddress} style={ulStyle}>{this.state.addressList}</ul></div>
                   <button onClick={this.clearList} style={{"float":"left", "marginLeft":"1em", "marginTop":"-0.1em"}} title='Clear the list'>Clear</button>
 
                   <div style={{"fontSize":"0.7em"}} id='bufferdiv'>
