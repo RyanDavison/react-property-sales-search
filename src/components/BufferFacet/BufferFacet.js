@@ -3,6 +3,7 @@ import axios from 'axios';
 import RangeFacetLabel from '../RangeFacetLabel';
 import Autocomplete from '../Autocomplete';
 import ClearButton from '../ClearButton';
+import LabeledInput from '../LabeledInput';
 import './style/bufferFacet.css';
 
 const bufferFacetStyle = {
@@ -56,10 +57,19 @@ const bufferFacetStyle = {
                       updateStore={this.props.updateAddress}
                   />
                   <ClearButton clearFunction={this.clearList} />
+                  <LabeledInput
+                      labelBefore="Buffer above entry"
+                      labelAfter="miles"
+                      valueFromState={this.props.distance}
+                      updateState={this.distanceChanged}
+                      type='number'
+                      min='0'
+                      step='.25'
+                      name='buffer'
+                      className='facet milesBuffer'
+                  />
 
-                  {/* <button onClick={this.clearList} style={{"float":"left", "marginLeft":"1em", "marginTop":"-0.1em"}} title='Clear the list'>Clear</button> */}
-
-                  <div style={{"fontSize":"0.7em"}} id='bufferdiv'>
+                  {/* <div style={{"fontSize":"0.7em"}} id='bufferdiv'>
                       <label style={{"float":"left", "fontSize":"0.9em", "marginTop":"0.5em"}} for='buffer'>Buffer above entry</label>
 
                       <input style={{"fontSize":"0.9em", "width":"4em", "float":"left", "marginLeft":"1em", "marginTop":"0.3em"}}
@@ -67,7 +77,7 @@ const bufferFacetStyle = {
                           onChange={this.distanceChanged}/>
 
                       <span style={{"marginTop":"0.5em", "float":"left", "marginLeft":"1em", "marginTop":"0.3em"}}>miles</span>
-                  </div>
+                  </div> */}
               </div>
                   </div>
       );
