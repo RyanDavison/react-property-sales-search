@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import RangeFacetLabel from '../RangeFacetLabel';
 import './style/bufferFacet.css';
 
 const bufferFacetStyle = {
@@ -13,15 +14,6 @@ const bufferFacetStyle = {
     height: '5em',
     width: '85%',
     boxShadow: '1px 1px 5px #888888'
-}
-const bufferFacetLabelStyle = {
-    display: 'block',
-    fontSize: '0.8em',
-    fontWeight: 'bold',
-    color: '#C4C4C4',
-    margin: '0 0 0.4em 0',
-    textAlign:'left',
-    borderBottom: '1px solid #ccc'
 }
 
 const inputStyle = {
@@ -105,7 +97,9 @@ const ulStyle = {
     render() {
       return (
           <div style={bufferFacetStyle}>
-              <label style={bufferFacetLabelStyle}>Buffer</label>
+              <RangeFacetLabel
+                  value="Buffer"
+              />
               <div>
                   <span style={{"fontSize":"0.7em", "float":"left"}}>Enter Address or Parcel No.</span>
 

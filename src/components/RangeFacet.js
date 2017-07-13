@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import RangeFacetLabel from './RangeFacetLabel';
 import PropTypes from 'prop-types';
 
 const rangeFacetStyle = {
@@ -59,7 +59,7 @@ const inputStyle = {
     render() {
       return (
           <div style={rangeFacetStyle}>
-              <label style={rangeFacetLabelStyle}>{this.props.title}</label>
+              <RangeFacetLabel value={this.props.title} />
               <div style={rangeBlock}>
                   <label style={{"display":"block", "textAlign":"left"}} className='range'>{this.props.minLabel}</label>
                   <input style={inputStyle} className='facet access' type='number' step={this.props.step} value={this.props.minValue}

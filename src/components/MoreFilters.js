@@ -250,7 +250,6 @@ const customStyles = {
                               handleChange={this.props.actions.updateSalesQualification}
                           />
                       </div>
-                      {/* <Qualification /> */}
 
                       <RangeFacet
                           title='Sale Amount'
