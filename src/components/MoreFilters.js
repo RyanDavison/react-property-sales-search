@@ -312,11 +312,7 @@ const customStyles = {
                           selected={this.props.neighborhoods}
                           onChange={this.props.actions.updateNeighborhood}
                       />
-
-
                   </div>
-
-
 
                   <div style={{...column, ...rightColumn}} className="rightColumn">
 
