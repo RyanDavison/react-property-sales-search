@@ -74,7 +74,6 @@ const modalStyle = {
 
 const majorAreaStyle = {
     component:{
-        // 'float':'left',
         display:'inline-block',
         marginRight:'0.8em',
         'paddingTop':'1em',

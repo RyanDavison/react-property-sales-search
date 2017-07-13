@@ -39,7 +39,7 @@ const rangeFacetStyle = {
                   type="number"
                   step={this.props.step}
                   rangeValue={this.props.minValue}
-                  onChange={this.changMin}
+                  rangeChange={this.changeMin}
               />
               <RangeBlock
                   labelText={this.props.maxLabel}
@@ -47,7 +47,7 @@ const rangeFacetStyle = {
                   type="number"
                   step={this.props.step}
                   rangeValue={this.props.maxValue}
-                  onChange={this.changMax}
+                  rangeChange={this.changeMax}
               />
           </div>
       );
