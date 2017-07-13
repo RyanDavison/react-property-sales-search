@@ -321,7 +321,7 @@ const customStyles = {
                           defaultOption='Any'
                           customStyles={buildingTypeStyle}
                           selected={this.props.architecturalTypes}
-                          onChange={this.props.actions.updatearchitecturalType}
+                          onChange={this.props.actions.updateArchitecturalType}
                       />
 
                       <BufferFacet
@@ -353,9 +353,8 @@ const customStyles = {
 
     const mapStateToProps = (state, ownProps)=>{
         return {
+            //Two other facets located in FacetsBar.js
             modalIsOpen: state.modalDisplay.modalIsOpen,
-            // minSaleDate: state.facets.minSaleDate,
-            // maxSaleDate: state.facets.maxSaleDate,
             qualificationType: state.facets.qualificationType,
             minSaleAmount: state.facets.minSaleAmount,
             maxSaleAmount: state.facets.maxSaleAmount,
@@ -370,8 +369,6 @@ const customStyles = {
             architecturalTypes: state.facets.architecturalTypes,
             bufferDistance: state.facets.bufferDistance,
             bufferAddress: state.facets.bufferAddress,
-            // archTypeOptions: state.facets.archTypeOptions,
-            // neighborhoodOptions: state.facets.neighborhoodOptions,
             recordCount: state.records.recordCount
         }
     }
