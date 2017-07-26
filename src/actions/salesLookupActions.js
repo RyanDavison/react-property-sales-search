@@ -81,6 +81,22 @@ export function updateRecordCountButton(facetData){
     }
 }
 
+export function updateTableRecordsSuccess(recordCount){
+    return {type: actions.UPDATE_RECORDS_SUCCESS, recordCount};
+}
+
+export function updateTableRecords(facetData){
+    return function(dispatch){
+        return axios.post('http://localhost:3000/query/count', facetData)
+        .then(res => {
+            dispatch(updateTableRecordsSuccess(res.data))
+        })
+        .catch(error => {
+            throw(error);
+        })
+    }
+}
+
 export function updateBufferDistance(bufferDistance){
     return {type: actions.UPDATE_BUFFER_DISTANCE, bufferDistance};
 }
