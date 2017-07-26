@@ -1,74 +1,66 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
+import DataTable from 'datatables.net';
+
+const columns = [
+    {title: "Parcel Number (Click for map)"},
+    {title: "Account Number (Click for details)"},
+    {title: "Reception No./Book Page (Click for Doc.)"},
+    {title: "Address"},
+    {title: "Sale Price"},
+    {title: "Sale Date"},
+    {title: "Grantee"},
+    {title: "Grantor"},
+    {title: "Actual Value"},
+    {title: "Qualification Code"},
+    {title: "Vacant Code"},
+    {title: "Neighborhood"},
+    {title: "Economic Area"},
+    {title: "Property Use"},
+    {title: "Total Heated Sq Ft"},
+    {title: "Price by Heated SQFT"},
+    {title: "Aprox. Acres"},
+    {title: "Architectual Style 1st Building"},
+    {title: "Total # Buildings"},
+    {title: "Earliest Effective Year Built"}
+];
+
+const dataSet = [
+    ["2458-254-14-125", "R05222", "125478", "584 Sunny Meadow Lane", "$360000", "10/15/17", "Some Guy", "Me"]
+];
+
 
   class Table extends Component {
 
       constructor(props){
           super(props)
           this.state = {
-            //   isShown: true,
-              rowData: this.createRowData(),
-              columnDefs: this.createColumnDefs()
+              isShown: true
           }
       }
 
-      createColumnDefs() {
-        return [
-            {headerName: "Make", field: "make"},
-            {headerName: "Model", field: "model"},
-            {headerName: "Price", field: "price"}
-        ];
+      componentDidMount() {
+        $(this.refs.main).DataTable({
+           dom: '<"data-table-wrapper"t>',
+           data: dataSet, columns,
+           ordering: false
+        });
     }
-
-    createRowData() {
-        return [
-            {make: "Toyota", model: "Celica", price: 35000},
-            {make: "Ford", model: "Mondeo", price: 32000},
-            {make: "Porsche", model: "Boxter", price: 72000}
-        ];
+    componentWillUnmount(){
+       $('.data-table-wrapper')
+       .find('table')
+       .DataTable()
+       .destroy(true);
     }
-
-    //   createColumnDefs() {
-    //     // return [
-    //     //     {headerName: "Make", field: "make"},
-    //     //     {headerName: "Model", field: "model"},
-    //     //     {headerName: "Price", field: "price"}
-    //     // ];
-    //
-    //     return [
-    //         {headerName: "Parcel Number (Click for map)", field: "PARCELNO"},
-    //         {headerName: "Account Number (Click for details)", field: "ACCOUNTNO"},
-    //         {headerName: "Reception No./Book Page (Click for Doc.)", field: "RECEPTION"},
-    //         {headerName: "Address", field: "ADDRESS"},
-    //         {headerName: "Sale Price", field: "PRICE"},
-    //         {headerName: "Sale Date", field: "DATE"},
-    //         {headerName: "Grantee", field: "GRANTEE"},
-    //         {headerName: "Grantor", field: "GRANTOR"},
-    //         // {headerName: "Price", field: "price"},
-    //         // {headerName: "Price", field: "price"},
-    //         // {headerName: "Price", field: "price"},
-    //         // {headerName: "Price", field: "price"},
-    //         // {headerName: "Price", field: "price"},
-    //         // {headerName: "Price", field: "price"},
-    //         // {headerName: "Price", field: "price"},
-    //         // {headerName: "Price", field: "price"},
-    //         // {headerName: "Price", field: "price"},
-    //         // {headerName: "Price", field: "price"},
-    //         // {headerName: "Price", field: "price"},
-    //         // {headerName: "Price", field: "price"},
-    //
-    //     ];
-    // }
-    //
-    //   createRowData() {
-    //     return [
-    //         {PARCELNO: "Toyota", ACCOUNTNO: "Celica", RECEPTION: 35000},
-    //         {PARCELNO: "Ford", ACCOUNTNO: "Mondeo", RECEPTION: 32000},
-    //         {PARCELNO: "Porsche", ACCOUNTNO: "Boxter", RECEPTION: 72000}
-    //     ];
-    // }
+    shouldComponentUpdate() {
+        return false;
+    }
 
     render() {
       return (
+          <div>
+              <table ref="main" />
+          </div>
         //   <table style={{"display": this.state.isShown?"block": "none"}} id="table" className="row-border hover">
         //       <thead>
         //           <tr>
