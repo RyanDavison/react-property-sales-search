@@ -32,11 +32,12 @@ const datePickerStyle = {
       }
 
       handleChangeStart = date => {
-          this.props.actions.updateMinSaleDate(date.format("DD/MM/YYYY"));
+          console.log(date)
+          this.props.actions.updateMinSaleDate(date);
         }
 
         handleChangeEnd = date => {
-            this.props.actions.updateMaxSaleDate(date.format("DD/MM/YYYY"));
+            this.props.actions.updateMaxSaleDate(date);
           }
 
 
