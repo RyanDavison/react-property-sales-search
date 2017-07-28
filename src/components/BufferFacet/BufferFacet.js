@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import RangeFacetLabel from '../RangeFacetLabel';
 import Autocomplete from '../Autocomplete';
 import ClearButton from '../ClearButton';
