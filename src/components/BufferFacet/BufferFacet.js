@@ -19,10 +19,6 @@ const bufferFacetStyle = {
 }
 
   class BufferFacet extends Component {
-      constructor(props){
-          super(props)
-      }
-
       distanceChanged = i =>{
           //if the address box is empty, show error popup to customer
           if(this.props.address === ""){
