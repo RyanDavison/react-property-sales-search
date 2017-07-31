@@ -5,6 +5,14 @@ export function toggleModal(modalIsOpen){
     return {type: actions.TOGGLE_MODAL, modalIsOpen};
 }
 
+export function toggleStartMessage(startMessageIsOpen){
+    return {type: actions.TOGGLE_START_MESSAGE, startMessageIsOpen};
+}
+
+export function toggleTable(tableIsOpen){
+    return {type: actions.TOGGLE_TABLE, tableIsOpen};
+}
+
 export function updateMinSaleDate(minSaleDate){
     return {type: actions.UPDATE_MIN_SALE_DATE, minSaleDate};
 }
