@@ -7,7 +7,7 @@ const initDisplayState = {
     loadingSpinnerIsOpen: false
 }
 
-export default function displayReducer(state = initDisplayStates, action){
+export default function displayReducer(state = initDisplayState, action){
     switch(action.type){
         case actions.TOGGLE_MODAL:
             return {modalIsOpen: action.modalIsOpen};
