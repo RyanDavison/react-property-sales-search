@@ -4,7 +4,7 @@ import LoadingSpinner from './LoadingSpinner';
 const startMessageStyles = {
     padding: "3em",
     textAlign: "center",
-    width: "50em",
+    // width: "50em",
     border: "1px solid gray",
     margin: "2em auto",
     borderRadius: "7px",
