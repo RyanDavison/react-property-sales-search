@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 
 const spinnerStyle = {
-    padding: "3em",
-    textAlign: "center",
-    width: "50em",
-    border: "1px solid gray",
-    margin: "2em auto",
-    borderRadius: "7px",
-    boxShadow: "1px 1px 5px #888888"
+    textAlign: "center"
 }
 
   class LoadingSpinner extends Component {
