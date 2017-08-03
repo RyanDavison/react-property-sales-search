@@ -77,6 +77,10 @@ export function updateBufferDistance(bufferDistance){
     return {type: actions.UPDATE_BUFFER_DISTANCE, bufferDistance};
 }
 
+export function updateBufferAddress(bufferAddress){
+    return {type: actions.UPDATE_BUFFER_ADDRESS, bufferAddress};
+}
+
 export function updateRecordCountButtonSuccess(recordCount){
     return {type: actions.UPDATE_COUNT_SUCCESS, recordCount};
 }
@@ -108,16 +112,6 @@ export function updateTableRecords(facetData){
         })
     }
 }
-
-export function updateBufferDistance(bufferDistance){
-    return {type: actions.UPDATE_BUFFER_DISTANCE, bufferDistance};
-}
-
-export function updateBufferAddress(bufferAddress){
-    return {type: actions.UPDATE_BUFFER_ADDRESS, bufferAddress};
-}
-
-
 
 //Helper functions
 function createOptionsList(options){
