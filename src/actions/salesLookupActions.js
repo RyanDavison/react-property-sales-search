@@ -73,6 +73,10 @@ export function updateArchitecturalType(architecturalTypeList){
     return {type: actions.UPDATE_ARCHITECTURAL_TYPE, architecturalTypes: createOptionsList(architecturalTypeList)};
 }
 
+export function updateBufferDistance(bufferDistance){
+    return {type: actions.UPDATE_BUFFER_DISTANCE, bufferDistance};
+}
+
 export function updateRecordCountButtonSuccess(recordCount){
     return {type: actions.UPDATE_COUNT_SUCCESS, recordCount};
 }
