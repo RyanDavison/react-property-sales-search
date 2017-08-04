@@ -14,7 +14,7 @@ const initState = {
     economicAreas: ['Any'],
     neighborhoods: ['Any'],
     architecturalTypes: ['Any'],
-    bufferAddress: "none",
+    bufferAddress: "",
     bufferDistance: 0
 }
 
