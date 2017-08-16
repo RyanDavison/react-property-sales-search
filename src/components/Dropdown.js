@@ -6,7 +6,6 @@ import '../styles/Dropdown.css';
       constructor(props){
           super(props);
           this.state = {
-            //   value: props.value,
               display: false,
               listItems: props.option,
               baseClass: props.baseclass
@@ -23,8 +22,9 @@ componentWillUnmount = () =>{
 
 selectNode = (node) =>{
     if (node.target.className !== 'heading') {
-        this.props.handleChange(node.target.innerHTML)
-        // this.setState({value: node.target.innerHTML});
+        this.props.handleChange[0](node.target.innerHTML); //updateRecordCountButton()
+        this.props.handleChange[1](); //getCount() from MoreFilters.js
+        // this.props.handleChange[0](node.target.innerHTML);
     }
 }
 
