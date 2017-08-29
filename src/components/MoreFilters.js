@@ -207,7 +207,29 @@ const customStyles = {
     }
 
     getCount = ()=>{
-        this.props.actions.updateRecordCountButton(this.props.allState)
+        if(this.props.propertyType !== 'Select Property Type'){
+        this.props.actions.updateRecordCountButton(this.props.allState);
+    }else{
+        window.alert(`Please select a property type`)
+    }
+    }
+
+    showTable = () =>{
+        window.alert('fee')
+        if(this.props.propertyType !== 'Select Property Type'){
+            this.props.actions.updateTableRecords(this.props.allState);
+            this.toggleModal();
+    }else{
+        window.alert(`Please select a property type`)
+    }
+    }
+
+    getRecs = () =>{
+        window.alert('pig')
+        console.log('EEEE1E');
+        // this.props.actions.updateTableRecords(this.props.allState);
+        // console.log('EEEEE2', this.props.recordData);
+
     }
 
     getAllRecords = (geometry, distance) => {
@@ -258,7 +280,7 @@ const customStyles = {
                               option={qualificationContent}
                               placeholder='Qualified and Unqualified'
                               value={this.props.qualificationType}
-                              handleChange={this.props.actions.updateSalesQualification}
+                              handleChange={[this.props.actions.updateSalesQualification, this.getCount]}
                           />
                       </div>
 
@@ -356,7 +378,9 @@ const customStyles = {
 
 
                       <div style={buttonGroupStyle} className='buttonGroup'>
+                          {/* <button style={buttonStyle} onClick={this.getRecs}>View {this.props.recordCount} records</button> */}
                           <button style={buttonStyle} onClick={this.getCount}>View {this.props.recordCount} records</button>
+                          {/* <button style={buttonStyle} onClick={this.getRecs}>View {this.props.recordCount} records</button> */}
                           <button style={buttonStyle} onClick={this.toggleModal}>Cancel</button>
                       </div>
                   </div>
@@ -375,9 +399,11 @@ const customStyles = {
 
 
     const mapStateToProps = (state, ownProps)=>{
+        console.log(`Mapping more filter to props`)
         return {
             //Two other facets located in FacetsBar.js
             allState: state.facets,
+            propertyType: state.facets.propertyType,
             modalIsOpen: state.modalDisplay.modalIsOpen,
             qualificationType: state.facets.qualificationType,
             minSaleAmount: state.facets.minSaleAmount,
@@ -393,7 +419,8 @@ const customStyles = {
             architecturalTypes: state.facets.architecturalTypes,
             bufferDistance: state.facets.bufferDistance,
             bufferAddress: state.facets.bufferAddress,
-            recordCount: state.records.recordCount
+            recordCount: state.records.recordCount,
+            recordData: state.records.recordData
         }
     }
 
