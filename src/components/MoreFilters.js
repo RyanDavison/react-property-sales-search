@@ -181,7 +181,6 @@ const customStyles = {
             super(props);
             this.state = {
                 modalIsOpen: false,
-                // count: "0",
                 neighborhoodOptions: undefined,
                 archTypeOptions: undefined
             }

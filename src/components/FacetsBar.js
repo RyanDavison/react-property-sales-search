@@ -47,13 +47,16 @@ const dropdownContent = [
 ]
 
 class FacetsBar extends Component {
+    getCount = ()=>{
+        this.props.actions.updateRecordCountButton(this.props.allState);
+    }
   render() {
     return (
       <div style={facetsbar} className="facets-bar">
           <Datepickers time={4} units={'months'}/>
           <span style={dividerStyle}></span>
           <Dropdown baseclass='more-filters' option={dropdownContent} placeholder='Select Property Type' value={this.props.propertyType} handleChange={[this.props.actions.updatePropertyType,
-              this.props.actions.updateRecordCountButton(this.props.allState)]}/>
+          this.getCount]}/>
 
           <span style={dividerStyle}></span>
           <MoreFilters message={'More Filters'}/>
