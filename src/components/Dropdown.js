@@ -23,9 +23,7 @@ componentWillUnmount = () =>{
 selectNode = (node) =>{
     if (node.target.className !== 'heading') {
         this.props.handleChange[0](node.target.innerHTML); //updateRecordCountButton()
-        window.setTimeout(function(){}, 1000)
         this.props.handleChange[1](); //getCount() from MoreFilters.js
-        // this.props.handleChange[0](node.target.innerHTML);
     }
 }
 
