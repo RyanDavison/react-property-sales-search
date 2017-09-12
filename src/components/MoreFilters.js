@@ -213,15 +213,15 @@ const customStyles = {
     }
     }
 
-    showTable = () =>{
-        window.alert('fee')
-        if(this.props.propertyType !== 'Select Property Type'){
-            this.props.actions.updateTableRecords(this.props.allState);
-            this.toggleModal();
-    }else{
-        window.alert(`Please select a property type`)
-    }
-    }
+    // showTable = () =>{
+    //     window.alert('fee')
+    //     if(this.props.propertyType !== 'Select Property Type'){
+    //         this.props.actions.updateTableRecords(this.props.allState);
+    //         this.toggleModal();
+    // }else{
+    //     window.alert(`Please select a property type`)
+    // }
+    // }
 
     getRecs = () =>{
         window.alert('pig')
@@ -279,7 +279,7 @@ const customStyles = {
                               option={qualificationContent}
                               placeholder='Qualified and Unqualified'
                               value={this.props.qualificationType}
-                              handleChange={[this.props.actions.updateSalesQualification, this.getCount]}
+                              handleChange={[this.props.actions.updateSalesQualification]}
                           />
                       </div>
 

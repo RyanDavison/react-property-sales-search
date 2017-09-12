@@ -86,10 +86,9 @@ export function updateRecordCountButtonSuccess(recordCount){
 }
 
 export function updateRecordCountButton(facetData){
-    console.log(`this is facetData`, facetData)
     return function(dispatch){
         // return dispatch(updateRecordCountButtonSuccess(66));
-        return axios.post('http://localhost:3000/query/count', facetData)
+        axios.post('http://localhost:3000/query/count', facetData)
         .then(res => {
             dispatch(updateRecordCountButtonSuccess(res.data))
         })
