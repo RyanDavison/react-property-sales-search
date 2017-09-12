@@ -41,7 +41,7 @@ const rangeFacetStyle = {
           <div style={rangeFacetStyle}>
 
               <RangeFacetLabel value={this.props.title} />
-              
+
               <RangeBlock
                   labelText={this.props.minLabel}
                   className="facet access"
