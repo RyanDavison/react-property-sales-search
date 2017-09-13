@@ -70,6 +70,7 @@ class FacetsBar extends Component {
 
 
   const mapStateToProps = (state, ownProps)=>{
+      console.log(state)
       return {
           propertyType: state.facets.propertyType,
           allState: state.facets
