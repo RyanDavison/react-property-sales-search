@@ -24,8 +24,8 @@ const bufferFacetStyle = {
           if(this.props.address === ""){
              window.confirm(`Please enter a parcel number or address above before trying to buffer.`);
          }else{
-             this.props.updateDistance(i.target.value);
-             this.props.updateRecordCount(this.props.state);
+             Promise.resolve(this.props.updateDistance(i.target.value))
+             .then(() =>this.props.updateRecordCount(this.props.state)); 
          }
       }
 
