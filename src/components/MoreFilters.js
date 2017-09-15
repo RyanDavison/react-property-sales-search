@@ -398,7 +398,6 @@ const customStyles = {
 
 
     const mapStateToProps = (state, ownProps)=>{
-        console.log(`Mapping more filter to props`)
         return {
             //Two other facets located in FacetsBar.js
             allState: state.facets,
