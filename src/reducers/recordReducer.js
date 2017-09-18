@@ -1,7 +1,7 @@
 import * as actions from '../actions/actionTypes';
 
 const recordState = {
-    recordCount:0,
+    recordCount:[],
     recordData: {}
 }
 
