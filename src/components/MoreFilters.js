@@ -378,7 +378,7 @@ const customStyles = {
 
                       <div style={buttonGroupStyle} className='buttonGroup'>
                           {/* <button style={buttonStyle} onClick={this.getRecs}>View {this.props.recordCount} records</button> */}
-                          <button style={buttonStyle} onClick={this.getCount}>View {this.props.recordCount} records</button>
+                          <button style={buttonStyle} onClick={this.getCount}>View {this.props.recordCount.length} records</button>
                           {/* <button style={buttonStyle} onClick={this.getRecs}>View {this.props.recordCount} records</button> */}
                           <button style={buttonStyle} onClick={this.toggleModal}>Cancel</button>
                       </div>
