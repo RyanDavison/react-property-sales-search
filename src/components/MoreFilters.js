@@ -207,7 +207,7 @@ const customStyles = {
 
     getCount = ()=>{
         if(this.props.propertyType !== 'Select Property Type'){
-        this.props.actions.updateRecordCountButton(this.props.allState);
+        this.props.actions.updateRecordCountButton(this.props.allState, this.props.recordCount);
     }else{
         window.alert(`Please select a property type`)
     }
