@@ -85,9 +85,9 @@ export function updateRecordCountButtonSuccess(recordCount){
     return {type: actions.UPDATE_COUNT_SUCCESS, recordCount};
 }
 
-export function updateRecordCountButton(facetData){
+export function updateRecordCountButton(facetData, accounts){
     return function(dispatch){
-        axios.post('http://localhost:3000/query/count', facetData)
+        axios.post('http://localhost:3000/query/count', {facetData, accounts})
         .then(res => {
             dispatch(updateRecordCountButtonSuccess(res.data))
         })
