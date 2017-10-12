@@ -231,31 +231,6 @@ const customStyles = {
 
     }
 
-    getAllRecords = (geometry, distance) => {
-    // require(["esri/request"], function (esriRequest) {
-    //     esriRequest({
-    //         url: "http://mcmap2.mesacounty.us/arcgis/rest/services/maps/ParcePointQuery/FeatureServer/0/query",
-    //         content: {
-    //             f: "pjson",
-    //             where: "ACCOUNTNO IN " + myList,
-    //             geometry: geometry,
-    //             geometryType: "esriGeometryPoint",
-    //             outFields: "ACCOUNTNO",
-    //             returnGeometry: false,
-    //             distance: distance,
-    //             units: "esriSRUnit_StatuteMile"
-    //         },
-    //         handleAs: "json",
-    //     }).then(function (data) {
-    //         buffPoint.length = 0;
-    //         $.each(data.features, function (i, e) {
-    //             buffPoint[i] = e.attributes["ACCOUNTNO"];
-    //         });
-    //         $.publish("countChange");
-    //     });
-    // });
-}
-
       render() {
         return (
           <div style={filterStyles} onClick={this.toggleModal}>
