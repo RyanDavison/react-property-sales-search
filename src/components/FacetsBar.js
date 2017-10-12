@@ -47,9 +47,6 @@ const dropdownContent = [
 ]
 
 class FacetsBar extends Component {
-    getCount = ()=>{
-        this.props.actions.updateRecordCountButton(this.props.allState);
-    }
   render() {
     return (
       <div style={facetsbar} className="facets-bar">
