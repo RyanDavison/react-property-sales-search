@@ -62,13 +62,14 @@ class FacetsBar extends Component {
 }
 
   FacetsBar.propTypes = {
+      // modalIsOpen: PropTypes.bool,
       actions: PropTypes.object.isRequired
   }
 
 
   const mapStateToProps = (state, ownProps)=>{
-      console.log(state)
       return {
+          // modalIsOpen: state.modalDisplay.modalIsOpen,
           propertyType: state.facets.propertyType,
           allState: state.facets
       }

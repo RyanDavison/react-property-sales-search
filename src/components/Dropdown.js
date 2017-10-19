@@ -26,7 +26,7 @@ componentWillUnmount = () =>{
 selectNode = (node) =>{
     if (node.target.className !== 'heading') {
         Promise.resolve(this.props.handleChange[0](node.target.innerHTML))
-        .then(() =>this.props.actions.updateRecordCountButton(this.props.allState));//getCount() from MoreFilters.js
+        .then(() => this.props.actions.updateRecordCountButton(this.props.allState, this.props.recordCount, this.props.modalIsOpen));//getCount() from MoreFilters.js
     }
 }
 
@@ -85,7 +85,7 @@ const mapStateToProps = (state, ownProps)=>{
         //Two other facets located in FacetsBar.js
         allState: state.facets,
         // propertyType: state.facets.propertyType,
-        // modalIsOpen: state.modalDisplay.modalIsOpen,
+        modalIsOpen: state.modalDisplay.modalIsOpen,
         // qualificationType: state.facets.qualificationType,
         // minSaleAmount: state.facets.minSaleAmount,
         // maxSaleAmount: state.facets.maxSaleAmount,
@@ -100,7 +100,7 @@ const mapStateToProps = (state, ownProps)=>{
         // architecturalTypes: state.facets.architecturalTypes,
         // bufferDistance: state.facets.bufferDistance,
         // bufferAddress: state.facets.bufferAddress,
-        // recordCount: state.records.recordCount,
+        recordCount: state.records.recordCount,
         // recordData: state.records.recordData
     }
 }

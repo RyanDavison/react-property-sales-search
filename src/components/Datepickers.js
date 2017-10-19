@@ -30,7 +30,7 @@ const datePickerStyle = {
       handleChangeStart = date => {
           Promise.resolve(this.props.actions.updateMinSaleDate(date)).then(() => {
             if (this.props.propertyType !== 'Select Property Type' && this.props.modalIsOpen === true) {
-              this.props.actions.updateRecordCountButton(this.props.allState);
+              this.props.actions.updateRecordCountButton(this.props.allState, [], this.props.modalIsOpen);
             } else if (this.props.propertyType !== 'Select Property Type' && this.props.modalIsOpen === false) {
               this.props.actions.updateTableRecords(this.props.allState);
           } else {
@@ -40,10 +40,9 @@ const datePickerStyle = {
         }
 
     handleChangeEnd = date => {
-
         Promise.resolve(this.props.actions.updateMaxSaleDate(date)).then(() => {
           if (this.props.propertyType !== 'Select Property Type' && this.props.modalIsOpen === true) {
-            this.props.actions.updateRecordCountButton(this.props.allState);
+            this.props.actions.updateRecordCountButton(this.props.allState, this.props.recordCount, this.props.modalIsOpen);
           } else if (this.props.propertyType !== 'Select Property Type' && this.props.modalIsOpen === false) {
             this.props.actions.updateTableRecords(this.props.allState);
         } else {

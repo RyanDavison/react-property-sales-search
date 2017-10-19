@@ -23,7 +23,7 @@ const rangeFacetStyle = {
           Promise.resolve(this.props.onMinChange(event.target.value))
           .then(() => {
               this.props.propertyType !== 'Select Property Type'?
-              this.props.actions.updateRecordCountButton(this.props.allState):
+              this.props.actions.updateRecordCountButton(this.props.allState, this.props.recordCount, this.props.modalIsOpen):
               window.alert(`Please select a property type`)
           });
       }
@@ -31,7 +31,7 @@ const rangeFacetStyle = {
           Promise.resolve(this.props.onMaxChange(event.target.value))
           .then(() =>{
               this.props.propertyType !== 'Select Property Type'?
-              this.props.actions.updateRecordCountButton(this.props.allState):
+              this.props.actions.updateRecordCountButton(this.props.allState, this.props.recordCount, this.props.modalIsOpen):
               window.alert(`Please select a property type`)
           });
       }
@@ -64,6 +64,7 @@ const rangeFacetStyle = {
   }
 
   RangeFacet.propTypes = {
+      modalIsOpen: PropTypes.bool.isRequired,
       title: PropTypes.string.isRequired,
       minLabel: PropTypes.string,
       maxLabel: PropTypes.string,
@@ -81,7 +82,8 @@ const rangeFacetStyle = {
   const mapStateToProps = (state, ownProps)=>{
       return {
           allState: state.facets,
-          propertyType: state.facets.propertyType
+          propertyType: state.facets.propertyType,
+          modalIsOpen: state.modalDisplay.modalIsOpen
       }
   }
 

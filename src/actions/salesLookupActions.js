@@ -85,33 +85,38 @@ export function updateRecordCountButtonSuccess(recordCount){
     return {type: actions.UPDATE_COUNT_SUCCESS, recordCount};
 }
 
-export function updateRecordCountButton(facetData, accounts){
-    return function(dispatch){
-        axios.post('http://localhost:3000/query/count', {facetData, accounts})
-        .then(res => {
-            dispatch(updateRecordCountButtonSuccess(res.data))
-        })
-        .catch(error => {
-            throw(error);
-        })
-    }
-}
-
 export function updateTableRecordsSuccess(recordData){
     return {type: actions.UPDATE_RECORDS_SUCCESS, recordData};
 }
 
-export function updateTableRecords(facetData){
+export function updateRecordCountButton(facetData, accounts, modalIsOpen){
     return function(dispatch){
-        return axios.post('http://localhost:3000/query/records', facetData)
+        axios.post('http://localhost:3000/query/count', {facetData, accounts, modalIsOpen})
         .then(res => {
             dispatch(updateTableRecordsSuccess(res.data))
+            dispatch(updateRecordCountButtonSuccess(res.data.map(x=>x.ACCOUNTNO)))
         })
         .catch(error => {
             throw(error);
         })
     }
 }
+
+// export function updateTableRecordsSuccess(recordData){
+//     return {type: actions.UPDATE_RECORDS_SUCCESS, recordData};
+// }
+//
+// export function updateTableRecords(facetData){
+//     return function(dispatch){
+//         return axios.post('http://localhost:3000/query/records', facetData)
+//         .then(res => {
+//             dispatch(updateTableRecordsSuccess(res.data))
+//         })
+//         .catch(error => {
+//             throw(error);
+//         })
+//     }
+// }
 
 //Helper functions
 function createOptionsList(options){

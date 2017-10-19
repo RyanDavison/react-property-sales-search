@@ -180,7 +180,7 @@ const customStyles = {
         constructor(props){
             super(props);
             this.state = {
-                modalIsOpen: false,
+                // modalIsOpen: false,
                 neighborhoodOptions: undefined,
                 archTypeOptions: undefined
             }
@@ -207,7 +207,7 @@ const customStyles = {
 
     getCount = ()=>{
         if(this.props.propertyType !== 'Select Property Type'){
-        this.props.actions.updateRecordCountButton(this.props.allState, this.props.recordCount);
+        this.props.actions.updateRecordCountButton(this.props.allState, this.props.recordCount, this.props.modalIsOpen);
     }else{
         window.alert(`Please select a property type`)
     }
@@ -366,7 +366,7 @@ const customStyles = {
     }
 
     MoreFilters.propTypes = {
-        modalIsOpen: PropTypes.bool.isRequired,
+        modalIsOpen: PropTypes.bool,
         recordCount: PropTypes.string.isRequired,
         actions: PropTypes.object.isRequired
     }
