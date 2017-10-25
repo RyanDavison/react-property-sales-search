@@ -202,7 +202,8 @@ const customStyles = {
     }
 
     toggleModal = () => {
-        this.props.actions.toggleModal(!this.props.modalIsOpen)
+        this.props.actions.toggleModal(!this.props.modalIsOpen);
+        // this.props.actions.toggleTable(true);
     }
 
     getCount = ()=>{
@@ -214,22 +215,13 @@ const customStyles = {
     }
     }
 
-    // showTable = () =>{
-    //     window.alert('fee')
-    //     if(this.props.propertyType !== 'Select Property Type'){
-    //         this.props.actions.updateTableRecords(this.props.allState);
-    //         this.toggleModal();
-    // }else{
-    //     window.alert(`Please select a property type`)
-    // }
-    // }
-
-    getRecs = () =>{
-        window.alert('pig')
-        console.log('EEEE1E');
-        // this.props.actions.updateTableRecords(this.props.allState);
-        // console.log('EEEEE2', this.props.recordData);
-
+    showTable = () =>{
+        if(this.props.propertyType !== 'Select Property Type'){
+            // this.props.actions.updateTableRecords(this.props.allState);
+            this.props.actions.toggleTable(true);
+    }else{
+        window.alert(`Please select a property type`)
+    }
     }
 
       render() {
@@ -354,7 +346,7 @@ const customStyles = {
 
                       <div style={buttonGroupStyle} className='buttonGroup'>
                           {/* <button style={buttonStyle} onClick={this.getRecs}>View {this.props.recordCount} records</button> */}
-                          <button style={buttonStyle} onClick={this.toggleModal}>View {this.props.recordCount.length} records</button>
+                          <button style={buttonStyle} onClick={this.showTable}>View {this.props.recordCount.length} records</button>
                           {/* <button style={buttonStyle} onClick={this.getRecs}>View {this.props.recordCount} records</button> */}
                           <button style={buttonStyle} onClick={this.toggleModal}>Cancel</button>
                       </div>
@@ -379,6 +371,7 @@ const customStyles = {
             allState: state.facets,
             propertyType: state.facets.propertyType,
             modalIsOpen: state.modalDisplay.modalIsOpen,
+            tableIsOpen: state.modalDisplay.tableIsOpen,
             qualificationType: state.facets.qualificationType,
             minSaleAmount: state.facets.minSaleAmount,
             maxSaleAmount: state.facets.maxSaleAmount,

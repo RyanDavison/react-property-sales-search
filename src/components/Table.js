@@ -11,18 +11,18 @@ const columns = [
     {title: "Sale Date"},
     {title: "Grantee"},
     {title: "Grantor"},
-    // {title: "Actual Value"},
-    // {title: "Qualification Code"},
-    // {title: "Vacant Code"},
-    // {title: "Neighborhood"},
-    // {title: "Economic Area"},
-    // {title: "Property Use"},
-    // {title: "Total Heated Sq Ft"},
-    // {title: "Price by Heated SQFT"},
-    // {title: "Aprox. Acres"},
-    // {title: "Architectual Style 1st Building"},
-    // {title: "Total # Buildings"},
-    // {title: "Earliest Effective Year Built"}
+    {title: "Actual Value"},
+    {title: "Qualification Code"},
+    {title: "Vacant Code"},
+    {title: "Neighborhood"},
+    {title: "Economic Area"},
+    {title: "Property Use"},
+    {title: "Total Heated Sq Ft"},
+    {title: "Price by Heated SQFT"},
+    {title: "Aprox. Acres"},
+    {title: "Architectual Style 1st Building"},
+    {title: "Total # Buildings"},
+    {title: "Earliest Effective Year Built"}
 ];
 
 const dataSet = [
