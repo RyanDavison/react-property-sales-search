@@ -217,7 +217,6 @@ const customStyles = {
 
     showTable = () =>{
         if(this.props.propertyType !== 'Select Property Type'){
-            // this.props.actions.updateTableRecords(this.props.allState);
             this.props.actions.toggleTable(true);
     }else{
         window.alert(`Please select a property type`)
