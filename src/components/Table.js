@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import * as salesLookupActions from '../actions/salesLookupActions';
 
 const columns = [
+    // {title: "Parcel Number (Click for map)"},
     {title: "Parcel Number (Click for map)"},
     {title: "Account Number (Click for details)"},
     {title: "Reception No./Book Page (Click for Doc.)"},
@@ -33,7 +34,7 @@ const dataSet = [
     {"parcel": "2458-254-14-125", "account": "R05223", "reception": "125478", "address":"584 Sunny Meadow Lane","price": "$360000","date": "10/15/17","grantor": "Me","grantee": "you"}
 ];
 
-// const dataSet = [];
+let dataSet2;
 
 
   class Table extends Component {
@@ -45,24 +46,25 @@ const dataSet = [
           }
       }
 
-      // componentWillMount(){
-      //     let myList2 = "(N'";
-      //
-      //       for (i = 0; i < len; i++) {
-      //           myList2 += (data[i][1] + "', N'");
-      //           data[i][0] = "<a href='http://emap.mesacounty.us/viewer/?maptype=propsales&amp;ACCOUNTNO=" + data[i][1] + "' target='_blank'>" + data[i][0] + "</a>";
-      //           data[i][1] = "<a href='http://emap.mesacounty.us/assessor_lookup/Assessor_Parcel_Report.aspx?Account=" + data[i][1] + "' target='_blank'>" + data[i][1] + "</a>";
-      //           data[i][2] = "<a href='https://recording.mesacounty.us/Landmarkweb//search/DocumentBy?ClerkFileNumber=" + data[i][2] + "' target='_blank'>" + data[i][2] + "</a>";
-      //           table.row.add(data[i]);
-      //       }
-      //       myList2 = myList2.slice(0, -4) + ")";
-      // }
+      componentWillMount(){
+          dataSet2 = this.props.recordData;
+          // let myList2 = "(N'";
+          //
+          //   for (i = 0; i < len; i++) {
+          //       myList2 += (data[i][1] + "', N'");
+          //       data[i][0] = "<a href='http://emap.mesacounty.us/viewer/?maptype=propsales&amp;ACCOUNTNO=" + data[i][1] + "' target='_blank'>" + data[i][0] + "</a>";
+          //       data[i][1] = "<a href='http://emap.mesacounty.us/assessor_lookup/Assessor_Parcel_Report.aspx?Account=" + data[i][1] + "' target='_blank'>" + data[i][1] + "</a>";
+          //       data[i][2] = "<a href='https://recording.mesacounty.us/Landmarkweb//search/DocumentBy?ClerkFileNumber=" + data[i][2] + "' target='_blank'>" + data[i][2] + "</a>";
+          //       table.row.add(data[i]);
+          //   }
+          //   myList2 = myList2.slice(0, -4) + ")";
+      }
 
       componentDidMount() {
           console.log(11, this.props.propertyType)
         $(this.refs.main).DataTable({
            dom: '<"data-table-wrapper"t>',
-           data: dataSet, columns,
+           data: dataSet2, columns,
            ordering: false
         });
     }
@@ -88,25 +90,25 @@ const dataSet = [
   const mapStateToProps = (state, ownProps)=>{
       return {
           //Two other facets located in FacetsBar.js
-          allState: state.facets,
-          propertyType: state.facets.propertyType,
-          modalIsOpen: state.modalDisplay.modalIsOpen,
-          tableIsOpen: state.modalDisplay.tableIsOpen,
-          qualificationType: state.facets.qualificationType,
-          minSaleAmount: state.facets.minSaleAmount,
-          maxSaleAmount: state.facets.maxSaleAmount,
-          minAcreage: state.facets.minAcreage,
-          maxAcreage: state.facets.maxAcreage,
-          minSquareFeet: state.facets.minSquareFeet,
-          maxSquareFeet: state.facets.maxSquareFeet,
-          majorAreas: state.facets.majorAreas,
-          propertyUses: state.facets.propertyUses,
-          economicAreas: state.facets.economicAreas,
-          neighborhoods: state.facets.neighborhoods,
-          architecturalTypes: state.facets.architecturalTypes,
-          bufferDistance: state.facets.bufferDistance,
-          bufferAddress: state.facets.bufferAddress,
-          recordCount: state.records.recordCount,
+          // allState: state.facets,
+          // propertyType: state.facets.propertyType,
+          // modalIsOpen: state.modalDisplay.modalIsOpen,
+          // tableIsOpen: state.modalDisplay.tableIsOpen,
+          // qualificationType: state.facets.qualificationType,
+          // minSaleAmount: state.facets.minSaleAmount,
+          // maxSaleAmount: state.facets.maxSaleAmount,
+          // minAcreage: state.facets.minAcreage,
+          // maxAcreage: state.facets.maxAcreage,
+          // minSquareFeet: state.facets.minSquareFeet,
+          // maxSquareFeet: state.facets.maxSquareFeet,
+          // majorAreas: state.facets.majorAreas,
+          // propertyUses: state.facets.propertyUses,
+          // economicAreas: state.facets.economicAreas,
+          // neighborhoods: state.facets.neighborhoods,
+          // architecturalTypes: state.facets.architecturalTypes,
+          // bufferDistance: state.facets.bufferDistance,
+          // bufferAddress: state.facets.bufferAddress,
+          // recordCount: state.records.recordCount,
           recordData: state.records.recordData
       }
   }
