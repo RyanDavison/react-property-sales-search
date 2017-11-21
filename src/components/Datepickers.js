@@ -32,7 +32,7 @@ const datePickerStyle = {
             if (this.props.propertyType !== 'Select Property Type' && this.props.modalIsOpen === true) {
               this.props.actions.updateRecordCountButton(this.props.allState, [], this.props.modalIsOpen);
             } else if (this.props.propertyType !== 'Select Property Type' && this.props.modalIsOpen === false) {
-              this.props.actions.updateTableRecords(this.props.allState);
+              this.props.actions.updateRecordCountButton(this.props.allState);
           } else {
               return;
           }
