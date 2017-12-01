@@ -29,12 +29,17 @@ const columns = [
     {title: "Earliest Effective Year Built"}
 ];
 
-const dataSet = [
-    {"parcel": "2458-254-14-125", "account": "R05223", "reception": "125478", "address":"584 Sunny Meadow Lane","price": "$360000","date": "10/15/17","grantor": "Me","grantee": "you"},
-    {"parcel": "2458-254-14-125", "account": "R05223", "reception": "125478", "address":"584 Sunny Meadow Lane","price": "$360000","date": "10/15/17","grantor": "Me","grantee": "you"}
-];
+// const dataSet = [
+//     {"parcel": "2458-254-14-125", "account": "R05223", "reception": "125478", "address":"584 Sunny Meadow Lane","price": "$360000","date": "10/15/17","grantor": "Me","grantee": "you"},
+//     {"parcel": "2458-254-14-125", "account": "R05223", "reception": "125478", "address":"584 Sunny Meadow Lane","price": "$360000","date": "10/15/17","grantor": "Me","grantee": "you"}
+// ];
 
-let dataSet2;
+// const dataSet = [
+//     ["2458-254-14-125", "R05223", "125478", "584 Sunny Meadow Lane", "$360000", "10/15/17", "Me", "you"],
+//     ["2458-254-14-125", "R05223", "125478", "584 Sunny Meadow Lane", "$360000", "10/15/17", "Me", "you"],
+// ];
+
+// let dataSet2;
 
 
   class Table extends Component {
@@ -42,12 +47,14 @@ let dataSet2;
       constructor(props){
           super(props)
           this.state = {
+              myData: this.props.recordData,
               isShown: true
           }
       }
 
       componentWillMount(){
-          dataSet2 = this.props.recordData;
+          this.setState({myData: this.props.recordData})
+          // dataSet2 = this.props.recordData;
           // let myList2 = "(N'";
           //
           //   for (i = 0; i < len; i++) {
@@ -61,21 +68,24 @@ let dataSet2;
       }
 
       componentDidMount() {
-          console.log(11, this.props.propertyType)
-        $(this.refs.main).DataTable({
-           dom: '<"data-table-wrapper"t>',
-           data: dataSet2, columns,
-           ordering: false
-        });
+console.log(`mountd`)
     }
+
+
     componentWillUnmount(){
        $('.data-table-wrapper')
        .find('table')
        .DataTable()
        .destroy(true);
     }
-    shouldComponentUpdate() {
-        return false;
+
+    componentWillUpdate() {
+        $(this.refs.main).DataTable({
+           dom: '<"data-table-wrapper"t>',
+           data: this.state.myData,
+           columns,
+           ordering: false
+        });
     }
 
     render() {
@@ -89,26 +99,6 @@ let dataSet2;
 
   const mapStateToProps = (state, ownProps)=>{
       return {
-          //Two other facets located in FacetsBar.js
-          // allState: state.facets,
-          // propertyType: state.facets.propertyType,
-          // modalIsOpen: state.modalDisplay.modalIsOpen,
-          // tableIsOpen: state.modalDisplay.tableIsOpen,
-          // qualificationType: state.facets.qualificationType,
-          // minSaleAmount: state.facets.minSaleAmount,
-          // maxSaleAmount: state.facets.maxSaleAmount,
-          // minAcreage: state.facets.minAcreage,
-          // maxAcreage: state.facets.maxAcreage,
-          // minSquareFeet: state.facets.minSquareFeet,
-          // maxSquareFeet: state.facets.maxSquareFeet,
-          // majorAreas: state.facets.majorAreas,
-          // propertyUses: state.facets.propertyUses,
-          // economicAreas: state.facets.economicAreas,
-          // neighborhoods: state.facets.neighborhoods,
-          // architecturalTypes: state.facets.architecturalTypes,
-          // bufferDistance: state.facets.bufferDistance,
-          // bufferAddress: state.facets.bufferAddress,
-          // recordCount: state.records.recordCount,
           recordData: state.records.recordData
       }
   }
