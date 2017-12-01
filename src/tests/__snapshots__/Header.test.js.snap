@@ -6,8 +6,6 @@ exports[`<Header /> renders without crashing 1`] = `
   style={
     Object {
       "backgroundColor": "#013E6B",
-      "color": "white",
-      "height": "100px",
     }
   }
 >
@@ -20,7 +18,7 @@ exports[`<Header /> renders without crashing 1`] = `
       src="logo.jpg"
       style={
         Object {
-          "paddingTop": "0.15em",
+          "width": "100%",
         }
       }
     />
